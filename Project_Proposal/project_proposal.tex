@@ -1,0 +1,298 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{naaclhlt2019}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+\usepackage{url}
+\newcommand{\blue}{\color{black}{}}
+\newcommand{\black}{\color{black}{}}
+\newcommand{\alex}{\color{black}{}}
+\newcommand{\mb}{\color{black}{}}
+\aclfinalcopy 
+
+\title{Mechanistic Interpretability of Grammatical Structures and Fuzzy Prompts}
+% Are we ready to submit? yes. Who wants to do the honours
+% just one or all? I think just one, they said one person must include others tho in the submission
+% (check piazza)
+% oh yea
+% you do it? aight
+% .  I haven't checked that in forever lmao I just opened it 5 mins ago 
+
+
+% you can do it Chirag! 
+% lol Chirag!
+% I got it guys xD
+% lmao 
+% we keep this here now
+
+
+% % btw, do you guys know there is a function in overleaf called CHATBOX?
+ 
+% Ill send the pdf on chat
+
+% lmaooo it's so broken. one sec  lmaosa function in overleys know there is 
+\author{
+  Chirag Adwani\thanks{\vspace{4mm}~~Equal contribution.} \\
+  {\tt cadwani@umd.edu} \\
+  \And
+  Marvyn Bailly\footnotemark[1] \\
+  {\tt mbailly@umd.edu} \\
+  \And
+  Kejia Zhang\footnotemark[1] \\
+  {\tt zkj15@umd.edu}
+}
+
+% \setlength\textwidth{16.0cm}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+% Tell us what problem you're going to work on. Provide some motivation for your idea: why is it interesting? Does it have any practical significance? 
+
+% Some general guidelines for this proposal document: at least \textbf{3 pages}, \textbf{due Oct 6}. Please use this LaTeX template to write your proposal.
+
+% \blue 
+% We are interested in learning about some popular tools that are being used in the growing subfield of mechanistic interpretability, with a hope to use them to answer the following questions (1) Do LLMs use different internal circuitry to handle processes involving different languages, with different grammatical structures? And (2) Does the circuitry employed to handle grammar in a language fire up in the absence of grammar in the prompt - such as in a fuzzy search. First part of this project will be based on recreating the results in \cite{ZYZEP25}, while the second part is what the group is curious to learn more about. 
+
+% Our interest in this project really stems from our curiosity in learning more about the internal circuitry of LLMs. The need to build technology in a diverse set of languages is, of course, a topic of prime importance. Hence, we believe that a stern understanding of how LLMs learn different languages and linguistic structures has great significance.  
+\alex{
+Since their emergence, large language models (LLMs) have demonstrated remarkable abilities in understanding and generating human language across diverse linguistic systems. They can often interpret multiple languages - and even produce coherent responses to prompts that are grammatically irregular or incomplete. Yet, how LLMs internally represent and process linguistic structure remains an open and fundamental question.
+
+Recent work by \cite{ZYZEP25} introduced tools such as path patching, adapted from mechanistic interpretability, along with logit attribution, to study cross-linguistic structural representations. Their study revealed intriguing similarities and divergences in internal circuitry across languages, suggesting that multilingual models may develop partially shared but also language-specific mechanisms for encoding grammar and syntax. Building on this foundation, our project seeks to reproduce and extend their results while broadening the methodological scope of mechanistic interpretability in the multilingual setting.
+% broadening the methodological scope sounds a bit hmm, too much? xD
+
+Specifically, we aim to examine whether multilingual LLMs employ shared or distinct internal circuits when processing languages with markedly different grammatical logics, such as English and Chinese. Chinese, spoken by the largest number of people worldwide, differs substantially from English in its syntactic and morphological organization, providing a natural testbed for probing cross-linguistic generalization. We will employ both path patching - to identify causal components within transformer architectures and the Information Flow Route (IFR) framework, which traces how information propagates through residual streams at each layer.
+
+By constructing parallel English–Chinese datasets that isolate specific grammatical features, we will analyze whether comparable attention heads or feed-forward modules are activated across languages, and how these activation patterns change when grammatical cues are degraded through fuzzy or ungrammatical prompts. Through these experiments, we aim to deepen our understanding of how LLMs internalize grammatical structure, how such representations vary across languages, and whether universal computational principles underlie multilingual language understanding.}
+\section{Related work}
+
+% Check out papers at ACL / EMNLP / NAACL / TACL (archived in the ACL anthology \url{https://www.aclweb.org/anthology}), and related papers at machine learning conferences such as NeurIPS, ICLR, and ICML. Make sure to properly cite them. You can cite a paper parenthetically like this~\cite{andrew2007scalable} or use the citation as a proper noun, as in ``\newcite{borsch2011} show that...'' If you're not familiar with LaTeX, you'll have to add entries to \emph{yourbib.bib} to get them to show up when you cite them. 
+% Have others worked on this idea or related ideas? Clearly describe the some of these approaches, along with their pros and cons. Connect your project to those papers. You need to have \textbf{at least five citations} to related papers here. 
+\blue 
+\alex{The primary inspiration for this project comes from Zhang et al. (2025) \cite{ZYZEP25}, who conducted one of the first large-scale studies on mechanistic interpretability in multilingual language models. Their work introduced the use of path patching and logit attribution to analyze structural similarities and differences in how LLMs encode grammatical information across languages. Building on these techniques, we aim to reproduce and extend their findings by investigating whether similar interpretability tools can be applied to less structured or “fuzzy” linguistic inputs.
+
+Path patching has emerged as a core method in mechanistic interpretability research \cite{WVCSS23}. It seeks to identify the specific internal circuits such as attention heads and MLP neurons that causally drive particular model behaviors. The method compares a clean input (where the model performs correctly) with a corrupted input (where it fails), then systematically replaces or “patches” internal activations from the clean run into the corrupted one. If patching a specific component restores correct behavior, that component is deemed causally important. Through this process, researchers can map functional circuits responsible for reasoning, often supported by logit attribution, which projects activations into the model’s output (or “verb”) space to reveal their semantic effects \cite{belrose2023eliciting}.
+
+Although widely adopted, path patching exhibits key limitations. The discovered circuits often depend heavily on the design of minimal pair templates (e.g., clean vs. corrupted examples), which must be carefully constructed to isolate a single behavior. Such pairs, however, are difficult to generalize across languages, domains, or grammatical contexts, limiting the interpretive scope of the method.
+
+In contrast, the Information Flow Route (IFR) framework \cite{ferrando2024information} provides a more continuous and general approach. IFR measures how information propagates through residual streams and attention pathways at each layer, allowing researchers to quantify each component’s contribution without relying on handcrafted input pairs. By tracing directed information flow, IFR captures the global structure of computation within the model and can be applied to a wider range of linguistic or conceptual settings.
+
+In this project, we plan to first reproduce the cross-linguistic results of Zhang et al. (2025) to validate our implementation of these interpretability techniques. We will then extend their approach by applying path patching and IFR to study how LLMs respond to fuzzy or ungrammatical prompts, a setting that—despite the growing literature on mechanistic interpretability—has not yet been systematically explored.}
+% The primary inspiration of ideas behind this proposal is \cite{ZYZEP25}. We are interested in learning about the analysis methods used in the paper, like \textit{path-patching}, as coined in \cite{WVCSS23}. The method has been around for a while, as can be seen in \cite{VGB20}, though with a different name. \alex
+% Path patching raised as a core technique in mechanistic interpretability research that aims to identify the specific intermal circuits(e.g. attention heads, MLP neurons, etc...) that causally drive a particular model behavior \cite{WVCSS23}. The technique compares a clean input (where the model behaves correctly) with a corrupted input (where the model errs) by running both through the model, caching activations from the clean run, and then patching those activations into the corrupted run one component at a time. If restoring a particular activation recovers the correct output, that component is deemed causally important. By systematically testing across layers and heads, we can map out the functional circuits responsible for the model’s reasoning, often confirmed via logit attribution, which projects activations into the model’s output (or “verb”) space to reveal their semantic influence\cite{belrose2023eliciting}. This approach provides direct causal evidence of how internal mechanisms produce observable behavior.
+
+% Although path patching provides wide adoption for identifying causal circuits in language models, the circuits it uncovers are often constrained by the choice of minimal pair templates (e.g., clean vs. corrupted input pairs). These minimal pairs must be carefully designed to isolate a specific behavior, but such controlled contrasts are not easily transferable across different languages or contexts, limiting the generality of the method.In contrast, the Information Flow Route (IFR) approach can evaluate the contribution of each attention head or component more broadly, without relying on handcrafted input pairs. By analyzing how information propagates through residual streams at each time step \cite{ferrando2024information}, IFR provides a more continuous and general measure of information contribution, making it applicable across diverse linguistic or conceptual settings. 
+
+
+% \blue
+% We plan to first understand the above mentioned methods, by trying to reproduce results in \cite{ZYZEP25}, and then to employ these methods to help understand the response of the internal circuitry of LMs to prefixes that do not have proper grammatical phrasing - i.e, \textit{fuzzy searches}. Although works using the above mentioned methods abound, the group could not find any articles that have looked into the problem of mechanistic interpretability of fuzzy searches.  
+
+% \black
+
+
+\section{Your approach}
+% How do you plan to solve the problem you chose? How will you approach it differently from previous work? Remember that this project should take $\sim 2.5$ months of work! 
+
+% We expect all groups will make use of AI coding assistants during this project, and as such we will take that into consideration when assessing the amount of proposed work.
+
+\blue
+
+Following in the footsteps of \cite{ZYZEP25}, we plan to carry out a controlled probe task known as Indirect Object Identification \cite{WVCSS23} in the hope to duplicate the found correlations between attention-head frequencies of English and Chinese prompts given to a multilingual LLM like BLOOM-560M \cite{BLOOM22}, \mb or Qwen2-0.5B-instruct, and monolingual models such as GPT-2small and CPM-Generate. To better understand a specific natural language task, we will use indirect object identification. An example of an IOI prompt \blue``Susan and Mary went to the bar. Susan gave a drink to [BLANK]''. The correct answer here is, of course, ``Mary''. \mb We also generate pairs of data that exhibit one grammatical feature (e.g. plurality) that is present in one language but not in the other. An example of such a sentence is ``Alice owns noun\_singular. Bob owns noun\_plural''. We could continue to study the effect of a fuzzy search by masking the grammatical words in the IOI prompts.  
+
+\blue
+We plan to proceed in two phases: (1) reproduce IOI results on the multi- and monolingual LLM models in English and Chinese, including head-level activity maps and correlation measurements. (2) Test whether heads implicated in grammatical processing remain necessary when prompts are made with typos or just as a bag-of-words (``fuzzy''). We can conclude by quantifying the cross-lingual circuit overlaps. 
+
+\black
+
+\paragraph{baselines}
+% A baseline is one that is very simple and trivial to implement. For example, ``predict the most common class,'' or ``tag all capitalized words as names,'' or ``select the first sentence in the document''. Sometimes it can be difficult to get a fancy algorithm to beat a baseline. Always ask yourself, ``What's the simplest experiment I could do to (in)validate my hypothesis?'' Talented researchers have a knack for coming up with simple baselines. 
+
+\mb 
+To determine if LLMs use different internal circuits to handle processes with different grammatical structures, we will use IOI statements that contain a specific grammatical feature. We will use both path patching and IFR to analyze which heads and layers play significant roles in answering the statements. Additionally, we will use the Pearson Correlation Coefficient $\rho$ to compute the similarity between activation paths \cite{freedman2007statistics}. An analysis of the similar pathways will be carried out to determine how similar the pathway flows are and if the models active similar heads. 
+
+To investigate the absence of grammar in prompt, we will use path patching and IFR to analyze the significant heads. We will investigate the similarities across models and study the effects of ablating significant heads or feed forward layers. We will expect similar results as shown in \cite{ZYZEP25} when recreating results. 
+
+ To (in)validate our hypotheses, a similar method of analyses will preformed on different grammatical structures and fuzzy prompts.
+
+
+\black 
+\paragraph{compute resource justification}
+
+% If you are proposing to train or fine-tune a large language model, or generally do anything that requires access to large-scale compute / GPUs, explain to us how you plan to acquire said compute. Are there particular cloud providers or services you're going to use?\footnote{One place to start is \url{https://colab.research.google.com}, although you may want to check other providers if you need heavier-duty machines.}  Do your group members have personal computational resources to support the project? The purpose of this section is to try to get you thinking about the potential costs of your ideas and whether you need to scope them down. 
+
+\mb
+The main computational cost of our project will be preforming the mechanistic interpretability of our models. We plan to use a dataset of around 900 pairs. To preform path patching, we will require two runs per pair. Thus to run a pass on a model with 12 layers and 12 heads, we would require $900\times2\times12\times12 = 270,000$ forward passes. A group member has a personal RTX 4070 to preform the computations on noting that the intended tools are required to be extendable to the GPU. Due to the size of the models and the dataset, the information should fit on the RAM of the GPU. The tasks can be easily parallelized since the $900$ runs of pairs of path patching are embarrassingly parallel. If the computation time overhead provides an issue, we can use Colab. 
+
+\black
+
+\subsection{Schedule}
+% Divide your project into subtasks and estimate how much time each will take. If your group plans to divide subtasks amongst itself, also write who will be responsible for each milestone. If you plan to work on everything together, please say so here. Definitely budget some time for writing the final report, as well as performing an in-depth analysis of any models you build and/or data you collect. Sample schedule below:
+% \begin{enumerate}
+%     \item Acquire and pre-process data (2 weeks)
+%     \item Build models for task (5 weeks)
+%     \item Analyze the output of the model, do an error analysis (2 weeks)
+%     \item Work on final reports (1 week)
+% \end{enumerate}
+
+% Note that the subtasks will be different for every project. We welcome all types of projects, as long as some aspect of the project deals with language processing.
+\mb
+We plan to break down our project into the following list of sub tasks. We give an estimate for how long each task will take, noting that the total time adds up to 2.5 months
+
+\blue 
+\begin{enumerate}
+    \item Read and learn more about Patch Patching, information flow route methods, and the tools needed to implement these methods like TransformerLens \cite{NB22}.  (2 weeks)
+    \item Implement the required codes, run preliminary tests. (3 weeks)
+    \item  Use the working model to recreate results obtained in \cite{ZYZEP25}. Analyze. (2 weeks) 
+    \item Create new results for proposed fuzzy search experiments and/or new grammatical pattern. Analyze. (2 weeks)
+    \item Work on final reports. (1 week)
+\end{enumerate}
+
+\mb 
+Although computations will be carried out on a single members GPU, the group plans to work together to write code, analyze the results, create meaningful plots, and produce the final write up.
+
+\black
+\section{Data}
+
+% What text data do you plan to use in your project? Where will you get it from? Will you be annotating text yourselves? Convince us that it is available for you, and that you can easily get it, and that it is appropriate for the task and research questions you care about.
+
+% We use verbs and IOI? prob can find on Hugginface? We use chatgpt to translate english to chinese and have native verification? Or native translation but prob more work? If it is on hunggingface, we can retrive it via Transformers package I'd think
+
+% I am thinking it is probably more apt to have some of the following sentences in the Your approach section, since it explains IOI. agreed
+
+% To better understand a specific natural language task, we will use indirect object identification. In IOI, sentences of the form "Alice and Mary went to the store. Alice bought a sandwich for [BLANK]" are 
+
+\mb
+The dataset will contain $60 \times 15 = 900$ sequences of IOI sentences generated using 15 different templates across 60 input words. The templates will be designed manually along with a Python script that, given an input word, fills in the template sentences. We will use ChatGPT to translate the templates and names into Chinese and have them manually inspected by a native speaker before adding them to the dataset. Note that the Python script can be easily modified to create pairs to be used in path patching. 
+\blue{We can derive fuzzy variants of the said pairs by removing function words, by shuffling the order, or by introducing random incorrect spellings.}
+
+\mb
+
+To generate a list of words to feed into our templates, we plan to utilize Hugging Face's database which we can curl for free. From the database of words (e.g. verbs or plural nouns) we can sort them by words which follow the exact grammatical pattern to be studied (e.g. suffix is ``ed'' or ``s''). We will continue to translate the words into Chinese using ChatGPT and have them manually inspected by a native speaker.
+
+This pipeline will allow us to generate 60 words that follow a grammatical pattern, translate them into Chinese, and finally create 15 sample inputs per word in English and Chinese using a Python script. This process should be fairly robust and in the case that Hugging Face's database does not contain the desired dataset, we can manually generate a set of 60 words using ChatGPT and manually fairing their quality. Furthermore, if the dataset proves inefficient, this method allows us to quickly generate another set.
+
+\black
+
+
+\section{Tools}
+% What existing libraries or toolkits are you planning to use? What are you going to use them for? In general, what do you see yourself implementing from scratch vs. taking from existing libraries?
+
+%%%%%% NOTES
+% BLOOM: https://huggingface.co/bigscience/bloom-560m
+% QWEN: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
+% GPT2: https://huggingface.co/ComCom/gpt2-small
+% CPM: https://huggingface.co/TsinghuaAI/CPM-Generate
+% TransformerLens: https://github.com/TransformerLensOrg/TransformerLens
+
+\mb
+The framework of this study will be implemented using Python to leverage the number of existing machine learning libraries. We will use the pre-trained multilingual language models BLOOM-560M and Qwen2-0.5B-instruct as well the monolingual modals GPT-2 small (English) and CPM-Generate (Chinese). These models can be accessed through the Python library Transformers provided by Hugging Face. We note that the library can be easily extended to the GPU and parallelized.
+
+To perform mechanistic interpretability to analyze the previously presented models, we utilize the libraries PyTorch and TransformersLens. TransformerLens provides tools for preforming path patching and ablating individual attention heads or feed-forward layers. We plan to manually implement the flow routes method as it is a newer method. 
+
+
+\black
+\section{AI Disclosure}
+
+\begin{itemize}
+    \item It should be noted that the following AI tools were used in the creation of this proposal:
+    \mb
+    \begin{itemize}
+        \item Gemini
+        \item \blue{ChatGPT}
+    \end{itemize}
+\end{itemize}
+
+% \noindent\textit{If you answered yes to the above question, please complete the following as well:}
+
+\begin{itemize}
+    \item Experiences
+    % \item \textbf{Free response:} Describe your overall experience with the AI. Did you use it to generate new text, generate research ideas, check your own ideas, or rewrite text? How helpful was it? Did it just directly give you a good output, or did you have to edit it? Was its output ever obviously wrong or irrelevant? 
+    \mb
+    
+    Marvyn: 
+    \begin{itemize}
+        \item My experience with Gemini was overall beneficial and reduced the time in the "researching" phase of writing this proposal. I used the model to find tools such as Hugging Face which will provide access to the different LLM versions or where to find databases.
+        \item I also asked Gemini some clarifying questions about the reference papers. Such as "how did this paper generate their sample data?"
+    \end{itemize}
+
+    \blue Chirag: 
+    \begin{itemize}
+        \item I used ChatGPT to summarise the relevant papers, and I think it helped to reduced the time to go through them by a lot. It also helped me discover the other relevant works and understand the history of Mech Interp as a growing subject. I had a good conversation with ChatGPT, which definitely made me more interested in the subject.
+        \item I also used ChatGPT to write me some quick example codes of path patching and IFR so that I could get a gist of what they were. I think it was able to help me understand it to the level of writing this proposal. 
+        \item I also did some paraphrasing using ChatGPT (including this sentence) for better brevity.
+    \end{itemize}
+
+    \alex{Kejia Zhang:
+    \begin{itemize}
+        \item I used ChatGPT to convert my Mandarin and English mixed version sentences to english. 
+        \item I used ChatGPT to check the fluency of my texts. 
+        \item My overall experience is positive. I usually need to change some specific misunderstanding words with chatGPT.
+    \end{itemize}
+    }
+\end{itemize}
+\black
+
+\bibliographystyle{apalike}
+\footnotesize
+\bibliography{yourbib}
+
+
+\end{document}
+
+% @inproceedings{andrew2007scalable,
+%   title={Scalable training of {L1}-regularized log-linear models},
+%   author={Andrew, Galen and Gao, Jianfeng},
+%   booktitle={Proceedings of the 24th International Conference on Machine Learning},
+%   pages={33--40},
+%   year={2007},
+% }
+
+% @inproceedings{borsch2011,
+% 	Address = {Canberra, Australia},
+% 	Author = {Benjamin Borschinger and Mark Johnson},
+% 	Booktitle = {Proceedings of the Australasian Language Technology Association Workshop 2011},
+% 	Month = {December},
+% 	Pages = {10--18},
+% 	Title = {A Particle Filter algorithm for {B}ayesian Wordsegmentation},
+% 	Year = {2011}}
+
+
+% @book{Aho:72,
+%     author  = {Alfred V. Aho and Jeffrey D. Ullman},
+%     title   = {The Theory of Parsing, Translation and Compiling},
+%     year    = "1972",
+%     volume  = "1",
+%     publisher = {Prentice-Hall},
+%     address = {Englewood Cliffs, NJ}
+% }
+
+% @book{APA:83,
+%     author  = {{American Psychological Association}},
+%     title   = {Publications Manual},
+%     year    = "1983",
+%    publisher = {American Psychological Association},
+%    address = {Washington, DC}
+% }
+
+% @article{ACM:83,
+% 	author = {Association for Computing Machinery},
+% 	year = "1983",
+% 	journal = {Computing Reviews},
+% 	volume = "24",
+% 	number = "11",
+% 	pages = "503--512"
+% }
+
+% @article{Chandra:81,
+% 	author = {Ashok K. Chandra and Dexter C. Kozen and Larry J. Stockmeyer},
+% 	year = "1981",
+% 	title = {Alternation},
+% 	journal = {Journal of the Association for Computing Machinery},
+% 	volume = "28",
+% 	number = "1",
+% 	pages = "114--133",
+% 	doi = "10.1145/322234.322243",
+% }
