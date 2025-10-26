@@ -1,3 +1,3 @@
 # Mechanistic Interpretability of Grammatical Structures
 ## To Do
-- lots of stuff []
+- [ ] lots of stuff 
