@@ -58,7 +58,7 @@ Generates clean-corrupted pairs for causal intervention experiments:
 Generate the complete dataset with default templates and words:
 
 ```bash
-python generate_dataset.py
+python example_usage.py
 ```
 
 This will create an `output/` directory with:
