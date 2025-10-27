@@ -1,0 +1,100 @@
+{
+  "templates": [
+    {
+      "id": 0,
+      "english": "When John and Mary went to the store, John gave the {word} to Mary.",
+      "chinese": "当约翰和玛丽去商店时，约翰把{word}给了玛丽。",
+      "description": "IOI template with two names, indirect object identification"
+    },
+    {
+      "id": 1,
+      "english": "After Alice met Bob at the park, Alice handed the {word} to Bob.",
+      "chinese": "爱丽丝在公园遇到鲍勃后，爱丽丝把{word}递给了鲍勃。",
+      "description": "IOI template with location context"
+    },
+    {
+      "id": 2,
+      "english": "Tom and Sarah were in the library when Tom showed the {word} to Sarah.",
+      "chinese": "汤姆和莎拉在图书馆时，汤姆把{word}展示给莎拉。",
+      "description": "IOI template with location and showing action"
+    },
+    {
+      "id": 3,
+      "english": "During the meeting, David told Emma about the {word}, and David explained it to Emma.",
+      "chinese": "会议期间，大卫告诉艾玛关于{word}的事，大卫向艾玛解释了它。",
+      "description": "IOI template with explanation context"
+    },
+    {
+      "id": 4,
+      "english": "When Lisa and Mike were talking, Lisa offered the {word} to Mike.",
+      "chinese": "当丽莎和迈克交谈时，丽莎把{word}提供给了迈克。",
+      "description": "IOI template with offering action"
+    },
+    {
+      "id": 5,
+      "english": "Peter and Rachel went shopping, and Peter bought the {word} for Rachel.",
+      "chinese": "彼得和瑞秋去购物，彼得为瑞秋买了{word}。",
+      "description": "IOI template with shopping context"
+    },
+    {
+      "id": 6,
+      "english": "At the party, James and Kate were together when James gave the {word} to Kate.",
+      "chinese": "在聚会上，詹姆斯和凯特在一起时，詹姆斯把{word}给了凯特。",
+      "description": "IOI template with party context"
+    },
+    {
+      "id": 7,
+      "english": "While working on the project, Anna shared the {word} with Chris.",
+      "chinese": "在做项目时，安娜与克里斯分享了{word}。",
+      "description": "IOI template with work context"
+    },
+    {
+      "id": 8,
+      "english": "During lunch, Mark and Sophie were eating when Mark passed the {word} to Sophie.",
+      "chinese": "午餐时，马克和索菲在吃饭，马克把{word}递给了索菲。",
+      "description": "IOI template with dining context"
+    },
+    {
+      "id": 9,
+      "english": "When they arrived home, Daniel gave the {word} to Jessica.",
+      "chinese": "当他们到家时，丹尼尔把{word}给了杰西卡。",
+      "description": "IOI template with arrival context"
+    },
+    {
+      "id": 10,
+      "english": "At school, Emily and Ryan were studying when Emily lent the {word} to Ryan.",
+      "chinese": "在学校，艾米莉和瑞安在学习时，艾米莉把{word}借给了瑞安。",
+      "description": "IOI template with school context"
+    },
+    {
+      "id": 11,
+      "english": "Before the presentation, Kevin showed the {word} to Laura.",
+      "chinese": "在演示之前，凯文把{word}展示给了劳拉。",
+      "description": "IOI template with presentation context"
+    },
+    {
+      "id": 12,
+      "english": "In the office, Brian and Michelle were working when Brian sent the {word} to Michelle.",
+      "chinese": "在办公室，布莱恩和米歇尔在工作时，布莱恩把{word}发送给了米歇尔。",
+      "description": "IOI template with office context"
+    },
+    {
+      "id": 13,
+      "english": "After the class ended, Steve handed the {word} to Nicole.",
+      "chinese": "下课后，史蒂夫把{word}递给了妮可。",
+      "description": "IOI template with class context"
+    },
+    {
+      "id": 14,
+      "english": "During the trip, Alex and Sam were traveling when Alex brought the {word} for Sam.",
+      "chinese": "旅行期间，亚历克斯和萨姆在旅行时，亚历克斯为萨姆带来了{word}。",
+      "description": "IOI template with travel context"
+    }
+  ],
+  "metadata": {
+    "total_templates": 15,
+    "language_pair": "English-Chinese",
+    "task_type": "Indirect Object Identification (IOI)",
+    "notes": "Templates designed for studying grammatical structure processing in multilingual LLMs. Each template contains a placeholder {word} to be filled with target words."
+  }
+}
