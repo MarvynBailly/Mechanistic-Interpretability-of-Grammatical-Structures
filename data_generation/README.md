@@ -16,9 +16,10 @@ This pipeline generates:
 data_generation/
 ├── README.md                    # This file
 ├── generate_dataset.py          # Main data generation pipeline
-├── templates.json              # 15 IOI sentence templates
-├── words.json                  # 60 words with Chinese translations
-└── output/                     # Generated datasets (created on first run)
+└── input/                       # Required to run
+|    ├── templates.json          # 15 IOI sentence templates
+|    ├── words.json              # 60 words with Chinese translations
+└── output/                      # Generated datasets (created on first run)
     ├── clean_pairs.json
     ├── fuzzy_pairs.json
     ├── path_patching_pairs.json

@@ -302,8 +302,6 @@ def main():
     # Initialize generator
     generator = DatasetGenerator(output_dir="output")
 
-    # Generate full dataset
-    # Note: You need to create templates.json and words.json first
     templates_file = "templates.json"
     words_file = "words.json"
 
