@@ -1,0 +1,23 @@
+# Data Generation Pipeline Requirements
+# For Mechanistic Interpretability of Grammatical Structures
+
+# Core dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Optional: For fetching words from Hugging Face datasets
+# Uncomment if you want to use HuggingFace datasets
+# datasets>=2.14.0
+# transformers>=4.30.0
+
+# Optional: For ChatGPT API integration (translation automation)
+# Uncomment if you want to automate translations via OpenAI API
+# openai>=1.0.0
+# python-dotenv>=1.0.0
+
+# Development and testing
+pytest>=7.4.0
+
+# Note: The pipeline uses only Python standard library by default
+# (json, os, pathlib, typing, random, dataclasses, re, collections)
+# Additional packages above are optional enhancements

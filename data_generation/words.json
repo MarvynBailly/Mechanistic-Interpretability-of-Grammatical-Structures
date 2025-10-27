@@ -1,0 +1,437 @@
+{
+  "words": [
+    {
+      "id": 0,
+      "word": "book",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 1,
+      "word": "pen",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 2,
+      "word": "apple",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 3,
+      "word": "letter",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 4,
+      "word": "message",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 5,
+      "word": "gift",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 6,
+      "word": "document",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 7,
+      "word": "package",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 8,
+      "word": "report",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 9,
+      "word": "key",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 10,
+      "word": "phone",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 11,
+      "word": "notebook",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 12,
+      "word": "folder",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 13,
+      "word": "ticket",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 14,
+      "word": "card",
+      "grammatical_feature": "singular_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 15,
+      "word": "files",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 16,
+      "word": "books",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 17,
+      "word": "papers",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 18,
+      "word": "notes",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 19,
+      "word": "slides",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 20,
+      "word": "results",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 21,
+      "word": "photos",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 22,
+      "word": "details",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 23,
+      "word": "ideas",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 24,
+      "word": "plans",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 25,
+      "word": "instructions",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 26,
+      "word": "answers",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 27,
+      "word": "samples",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 28,
+      "word": "copies",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 29,
+      "word": "items",
+      "grammatical_feature": "plural_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 30,
+      "word": "walked",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 31,
+      "word": "talked",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 32,
+      "word": "worked",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 33,
+      "word": "played",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 34,
+      "word": "helped",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 35,
+      "word": "watched",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 36,
+      "word": "listened",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 37,
+      "word": "learned",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 38,
+      "word": "finished",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 39,
+      "word": "started",
+      "grammatical_feature": "past_tense_verb_ed",
+      "pos": "verb"
+    },
+    {
+      "id": 40,
+      "word": "information",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 41,
+      "word": "advice",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 42,
+      "word": "knowledge",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 43,
+      "word": "feedback",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 44,
+      "word": "solution",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 45,
+      "word": "answer",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 46,
+      "word": "explanation",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 47,
+      "word": "suggestion",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 48,
+      "word": "recommendation",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 49,
+      "word": "permission",
+      "grammatical_feature": "abstract_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 50,
+      "word": "laptop",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 51,
+      "word": "tablet",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 52,
+      "word": "charger",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 53,
+      "word": "magazine",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 54,
+      "word": "newspaper",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 55,
+      "word": "cup",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 56,
+      "word": "plate",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 57,
+      "word": "umbrella",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 58,
+      "word": "backpack",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    },
+    {
+      "id": 59,
+      "word": "wallet",
+      "grammatical_feature": "concrete_noun",
+      "pos": "noun"
+    }
+  ],
+  "chinese_translations": {
+    "book": "书",
+    "pen": "笔",
+    "apple": "苹果",
+    "letter": "信",
+    "message": "消息",
+    "gift": "礼物",
+    "document": "文件",
+    "package": "包裹",
+    "report": "报告",
+    "key": "钥匙",
+    "phone": "电话",
+    "notebook": "笔记本",
+    "folder": "文件夹",
+    "ticket": "票",
+    "card": "卡片",
+    "files": "文件",
+    "books": "书籍",
+    "papers": "论文",
+    "notes": "笔记",
+    "slides": "幻灯片",
+    "results": "结果",
+    "photos": "照片",
+    "details": "细节",
+    "ideas": "想法",
+    "plans": "计划",
+    "instructions": "说明",
+    "answers": "答案",
+    "samples": "样本",
+    "copies": "副本",
+    "items": "项目",
+    "walked": "走了",
+    "talked": "谈了",
+    "worked": "工作了",
+    "played": "玩了",
+    "helped": "帮助了",
+    "watched": "看了",
+    "listened": "听了",
+    "learned": "学了",
+    "finished": "完成了",
+    "started": "开始了",
+    "information": "信息",
+    "advice": "建议",
+    "knowledge": "知识",
+    "feedback": "反馈",
+    "solution": "解决方案",
+    "answer": "答案",
+    "explanation": "解释",
+    "suggestion": "建议",
+    "recommendation": "推荐",
+    "permission": "许可",
+    "laptop": "笔记本电脑",
+    "tablet": "平板电脑",
+    "charger": "充电器",
+    "magazine": "杂志",
+    "newspaper": "报纸",
+    "cup": "杯子",
+    "plate": "盘子",
+    "umbrella": "雨伞",
+    "backpack": "背包",
+    "wallet": "钱包"
+  },
+  "metadata": {
+    "total_words": 60,
+    "grammatical_features": [
+      "singular_noun",
+      "plural_noun",
+      "past_tense_verb_ed",
+      "abstract_noun",
+      "concrete_noun"
+    ],
+    "notes": "Words selected to test various grammatical patterns. Chinese translations should be manually verified by a native speaker as recommended in the project proposal."
+  }
+}

@@ -1,3 +1,3 @@
 # Mechanistic Interpretability of Grammatical Structures
 ## To Do
-- [ ] lots of stuff 
+- [ ] Native speaker needs to read through translated words [here](data_generation/templates.json)
