@@ -1,10 +1,10 @@
 # Data Generation Pipeline
 
-This directory contains the data generation pipeline for the **Mechanistic Interpretability of Grammatical Structures** project. The pipeline generates English-Chinese parallel datasets for studying how multilingual language models process grammatical structures.
+This directory contains the data generation pipeline for the project as described in the project proposal. The pipeline generates English-Chinese parallel datasets for studying how multilingual language models process grammatical structures.
 
 ## Overview
 
-Based on the project proposal, this pipeline generates:
+This pipeline generates:
 - **900 sentence pairs** (60 words × 15 templates)
 - **Clean variants** for baseline analysis
 - **Fuzzy variants** for robustness testing (missing function words, shuffled order, misspellings)
@@ -15,9 +15,7 @@ Based on the project proposal, this pipeline generates:
 ```
 data_generation/
 ├── README.md                    # This file
-├── requirements.txt             # Python dependencies
 ├── generate_dataset.py          # Main data generation pipeline
-├── fetch_words_from_hf.py      # Word fetching from Hugging Face/common words
 ├── templates.json              # 15 IOI sentence templates
 ├── words.json                  # 60 words with Chinese translations
 └── output/                     # Generated datasets (created on first run)
@@ -48,23 +46,9 @@ Three types of grammatical degradation:
 - **Shuffled word order**: Randomizes word positions
 - **Misspellings**: Introduces typos by swapping adjacent characters
 
-### 4. Path Patching Support
+### 4. Path Patching
 Generates clean-corrupted pairs for causal intervention experiments:
 - Each pair contains one clean and one corrupted variant
-- Designed for 270,000 forward passes (900 pairs × 2 runs × 12 layers × 12 heads)
-- Embarrassingly parallel for GPU optimization
-
-## Installation
-
-1. **Clone the repository** (if you haven't already):
-```bash
-cd Mechanistic-Interpretability-of-Grammatical-Structures/data_generation
-```
-
-2. **Install dependencies**:
-```bash
-pip install -r requirements.txt
-```
 
 ## Usage
 
@@ -121,24 +105,14 @@ Edit `words.json` to modify the word list:
 }
 ```
 
-#### 3. Generate Words from Hugging Face (Alternative)
-
-Instead of using the default word list, you can generate words automatically:
-
-```bash
-python fetch_words_from_hf.py
-```
-
-This creates `fetched_words.json` with placeholder Chinese translations that need to be filled in.
-
-#### 4. Translate and Verify
+#### 3. Translate and Verify
 
 **Important**: As per the project proposal:
 1. Use ChatGPT to translate English words/templates to Chinese
 2. **Have translations manually verified by a native Chinese speaker**
 3. Update the `chinese_translations` dictionary
 
-#### 5. Generate Dataset
+#### 4. Generate Dataset
 
 Run the main pipeline:
 
@@ -206,46 +180,6 @@ python generate_dataset.py
 ]
 ```
 
-## Computational Requirements
-
-As specified in the project proposal:
-
-- **Dataset size**: 900 pairs
-- **Path patching**: 2 runs per pair
-- **Model**: 12 layers × 12 heads
-- **Forward passes**: 900 × 2 × 12 × 12 = **270,000 total**
-- **Recommended GPU**: RTX 4070 or equivalent
-- **Parallelization**: Embarrassingly parallel across the 900 pairs
-
-## Customization
-
-### Adding New Grammatical Features
-
-1. Add words with new features to `words.json`:
-```json
-{
-  "word": "running",
-  "grammatical_feature": "gerund",
-  "pos": "verb"
-}
-```
-
-2. Update `fetch_words_from_hf.py` to add filtering functions for the new pattern
-
-### Modifying Fuzzy Variants
-
-Edit the fuzzy variant methods in `generate_dataset.py`:
-- `create_fuzzy_variant_missing_function_words()`
-- `create_fuzzy_variant_shuffled()`
-- `create_fuzzy_variant_misspelled()`
-
-### Changing Dataset Size
-
-Modify the constants in your templates/words files:
-- **15 templates** (can be increased/decreased)
-- **60 words** (can be adjusted)
-- Total pairs = templates × words
-
 ## Data Quality Checklist
 
 Before using the generated dataset:
@@ -256,53 +190,3 @@ Before using the generated dataset:
 - [ ] Fuzzy variants are appropriately degraded
 - [ ] Path patching pairs contain meaningful contrasts
 - [ ] Dataset statistics match expectations (900 clean pairs, etc.)
-
-## Integration with Main Project
-
-The generated datasets can be used for:
-
-1. **Path Patching Experiments**: Use `path_patching_pairs.json`
-2. **Baseline Analysis**: Use `clean_pairs.json`
-3. **Robustness Testing**: Use `fuzzy_pairs.json`
-4. **Cross-linguistic Comparison**: Compare English vs Chinese processing
-
-## Troubleshooting
-
-### Issue: Missing templates.json or words.json
-**Solution**: The pipeline includes default files. Ensure you're running from the correct directory.
-
-### Issue: Chinese characters not displaying correctly
-**Solution**: Files use UTF-8 encoding. Ensure your text editor/terminal supports UTF-8.
-
-### Issue: Want more/fewer words
-**Solution**: Run `fetch_words_from_hf.py` and adjust `max_words` parameter, or manually edit `words.json`.
-
-### Issue: Need different fuzzy variants
-**Solution**: Modify the fuzzy generation methods in `generate_dataset.py` or add new fuzzy types.
-
-## Citation
-
-If you use this pipeline in your research, please cite:
-
-```bibtex
-@misc{grammatical-structure-interpretability,
-  title={Mechanistic Interpretability of Grammatical Structures},
-  author={[Your Team]},
-  year={2024},
-  note={Data generation pipeline for cross-linguistic mechanistic interpretability}
-}
-```
-
-## References
-
-- Project Proposal: `../Project_Proposal/project_proposal.pdf`
-- Zyzik et al. (2025): Cross-linguistic structural representations with path patching
-- IOI Task: Indirect Object Identification for probing model internals
-
-## License
-
-[Add your license here]
-
-## Contact
-
-For questions or issues, please contact [your contact information].
