@@ -5,7 +5,7 @@ This script generates English-Chinese parallel datasets for studying grammatical
 in multilingual language models. It creates:
 - IOI (Indirect Object Identification) sentence pairs
 - Clean and fuzzy variants for path patching experiments
-- 900 total sequences (60 words × 15 templates)
+- 900 total sequences (60 words by 15 templates)
 
 Based on the project proposal's data generation methodology.
 """
