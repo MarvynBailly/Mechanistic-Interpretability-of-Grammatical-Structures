@@ -50,6 +50,8 @@ elif torch.cuda.is_available():
 else:
     DEVICE = "cpu"
 
+print(f"Using device: {DEVICE}")
+
 # N_EXAMPLES = 2000  # for evaluation; you can increase this later
 N_EXAMPLES = 2000          # full dataset for metrics
 N_HEATMAP_EXAMPLES = 200   # subset for attention heatmaps / cache

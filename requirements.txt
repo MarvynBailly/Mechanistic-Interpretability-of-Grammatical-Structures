@@ -1,0 +1,5 @@
+torch
+transformer-lens
+transformers
+einops
+matplotlib
