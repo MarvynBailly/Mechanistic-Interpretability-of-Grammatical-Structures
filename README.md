@@ -2,6 +2,46 @@
 
 This project implements path patching experiments for analyzing the Indirect Object Identification (IOI) task using GPT-2 small, based on the mechanistic interpretability framework.
 
+
+### IOI Sentences
+A sentence containing IOI begins with an initial dependent clause (e.g., "When Mary and John went to the store,") and ends with a main clause (e.g., "John gave a drink to Mary"). The sentence will introduce a subject (S) and an indirect object (IO) in the dependent clause. In the main clause, the subject will preform an action onto the indirect object (e.g., "John gave a drink to Mary" has John as S and Mary as IO). 
+
+### LLM Prediction Task
+Now given an IOI sentence, we remove the finally word(this is the indirect object, e.g., "When Mary and John went to the store, John gave a drink to") and ask the language model to predict the next token. The model should predict the indirect object rather than the repeated subject (e.g., "John gave a drink to Mary" not "John gave a drink to John"). We will refer to the first occurance of the subject as S1 (in the dependent clause) and the second occurance of the subject as S2 (in the main clause). Thus an example IOI sentence is:
+
+- "When IO and S1 went to the store, S2 gave a drink to" 
+- model should predict IO rather than S.
+
+The goal of this project is to understand how a small LLM is able to solve this task using mechanistic interpretability methods.
+
+### Transformer Architecture
+We will use GPT-2 small, a decoder-only transformer with 12 layers and 12 attention heads per attention layer.
+
+### Propused Circuit for IOI
+The authors of "Interpretability in the Wild" propose a circuit for how GPT-2 small solves the IOI task (quotes and images taken from this paper for this subsection). To understand, let's take the example "When Mary and John went to the store, John gave a drink to". A human-interpretable algorithm for solving IOI:
+
+1. Identify all previous names in the sentence (Mary, John, John)
+2. Remove the duplicate names (John)
+3. Output the last remaining name (Mary) 
+
+The paper proposes that GPT-2 small implements a similar algorithm using attention heads. The primary class of heads are:
+- "**Duplicate Token Heads**, identify tokens that have already appeared in the sentence. They are active at the S2 token, attend primarily to the S1 token, and signal that token duplication has occurred by writing the position of the duplicate token."
+- "**S-Inhibition Heads** remove duplicate tokens from Name Mover Heads’ attention. They are active at the END token, attend to the S2 token, and write in the query of the Name Mover Heads, inhibiting their attention to S1 and S2 tokens."
+- "**Name Mover Heads** output the remaining name. They are active at END, attend to previous names in the sentence, and copy the names they attend to. Due to the S-Inhibition Heads, they attend to the IO token over the S1 and S2 tokens."
+
+![From the "Interpretability in the Wild" paper](results/README/gpt2-circuit.png)
+
+
+
+
+
+
+
+
+
+
+
+
 ## Setup
 
 ### Environment Setup (Windows)
@@ -99,16 +139,11 @@ Each experiment generates the following visualizations:
 └── .gitignore                     # Git ignore rules (includes ioi-env/)
 ```
 
-## What is IOI (Indirect Object Identification)?
-
-The IOI task tests whether language models can correctly identify indirect objects in sentences like:
-- "When **Mary** and John went to the store, John gave a drink to [**Mary**]"
-
-The model must predict the indirect object (IO = Mary) rather than the repeated subject (S = John). Path patching helps identify which model components are responsible for this behavior.
 
 ## To Do
 - [x] Native speaker needs to read through translated [templates](data_generation/input/templates.json)
 - [x] Native speaker needs to read through translated [words](data_generation/input/words.json)
+- [ ] Understand what is going on
 - [ ] Implement unmasked IOI on English dataset
 - [ ] Implement unmasked IOI on Chinese dataset
 - [ ] Implement masked IOI on English dataset
