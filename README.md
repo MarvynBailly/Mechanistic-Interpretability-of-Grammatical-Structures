@@ -105,6 +105,10 @@ The IOI task tests whether language models can correctly identify indirect objec
 The model must predict the indirect object (IO = Mary) rather than the repeated subject (S = John). Path patching helps identify which model components are responsible for this behavior.
 
 ## To Do
-- [ ] Native speaker needs to read through translated [templates](data_generation/input/templates.json)
+- [x] Native speaker needs to read through translated [templates](data_generation/input/templates.json)
 - [x] Native speaker needs to read through translated [words](data_generation/input/words.json)
-
+- [ ] Implement unmasked IOI on English dataset
+- [ ] Implement unmasked IOI on Chinese dataset
+- [ ] Implement masked IOI on English dataset
+- [ ] Implement masked IOI on Chinese dataset
+- [ ] Implement masked versus unmasked correlation code
