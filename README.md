@@ -48,6 +48,8 @@ This will:
 - Run residual path patching analysis
 - Save all plots to the current directory
 
+Please reference `path_pathing\example.py` and `path_pathing\gpu_cpu_comp.py` for example usage.
+
 ### Custom Configuration
 
 Create a custom experiment with specific settings:
