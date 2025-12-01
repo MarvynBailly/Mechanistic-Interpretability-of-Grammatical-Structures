@@ -4,13 +4,13 @@ from IOI_pathpatching_gpu import IOIConfig, run_ioi
 
 def compare():
     # Force CPU
-    cpu_cfg = IOIConfig(device="cpu")
+    cpu_cfg = IOIConfig(device="cpu", output_dir="results/cpu")
     start = time.time()
     run_ioi(cpu_cfg)
     t_cpu = time.time() - start
 
     # Force GPU
-    gpu_cfg = IOIConfig(device="cuda")
+    gpu_cfg = IOIConfig(device="cuda", output_dir="results/gpu")
     start = time.time()
     run_ioi(gpu_cfg)
     t_gpu = time.time() - start

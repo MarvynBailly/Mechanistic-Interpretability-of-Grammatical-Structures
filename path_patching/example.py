@@ -3,7 +3,7 @@ from IOI_pathpatching_gpu import IOIConfig, run_ioi
 
 def main():
     # Default config (auto device, 2000 examples)
-    cfg = IOIConfig()
+    cfg = IOIConfig(output_dir="results/testing")
     # run main function
     run_ioi(cfg)
 

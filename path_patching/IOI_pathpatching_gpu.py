@@ -3,7 +3,6 @@ from typing import List, Tuple, Dict
 import random
 import numpy as np
 import torch
-import matplotlib.pyplot as plt
 
 from transformer_lens import HookedTransformer
 from transformer_lens.utils import get_act_name
@@ -16,6 +15,10 @@ from utils import (
     get_logits_for_next_token,
     evaluate,
     logit_diff_io_s_from_tokens,
+)
+from plotting import (
+    plot_all_attention_heatmaps,
+    save_residual_patching_heatmap,
 )
 
 """
@@ -51,6 +54,7 @@ class IOIConfig:
     n_heatmap_examples: int = 200
     model_name: str = "gpt2-small"
     seed: int = 42
+    output_dir: str = None      # Optional directory to save plots (default: current directory)
 
 # ------------- Names & Templates --------------
 # Single-token names (for GPT-2 tokenizer). Must include leading space.
@@ -356,58 +360,14 @@ def run_ioi(config: IOIConfig):
 
     attn_diff = attn_io - attn_s2  # IO preference over S2
 
-    # ---- Plot: END -> IO ----
-    plt.figure(figsize=(10, 6))
-    plt.imshow(attn_io.detach().cpu(), aspect="auto")
-    plt.xlabel("Head")
-    plt.ylabel("Layer")
-    plt.title("Avg attention from END to IO")
-    plt.colorbar()
-    plt.tight_layout()
-    plt.savefig("attn_end_to_io.png", dpi=160)
-    plt.close()
-    print("Saved END->IO attention heatmap to: attn_end_to_io.png")
-
-    # ---- Plot: END -> S2 ----
-    plt.figure(figsize=(10, 6))
-    plt.imshow(attn_s2.detach().cpu(), aspect="auto")
-    plt.xlabel("Head")
-    plt.ylabel("Layer")
-    plt.title("Avg attention from END to S2")
-    plt.colorbar()
-    plt.tight_layout()
-    plt.savefig("attn_end_to_s2.png", dpi=160)
-    plt.close()
-    print("Saved END->S2 attention heatmap to: attn_end_to_s2.png")
-
-    # ---- Plot: END -> IO minus END -> S2 (Name Movers stand out) ----
-    plt.figure(figsize=(10, 6))
-    plt.imshow(attn_diff.detach().cpu(), aspect="auto")
-    plt.xlabel("Head")
-    plt.ylabel("Layer")
-    plt.title("Attention difference (END -> IO minus END -> S2)")
-    plt.colorbar()
-    plt.tight_layout()
-    plt.savefig("attn_end_io_minus_s2.png", dpi=160)
-    plt.close()
-    print("Saved END->IO-S2 diff heatmap to: attn_end_io_minus_s2.png")
+    # ---- Save all attention heatmaps ----
+    plot_all_attention_heatmaps(attn_io, attn_s2, output_dir=config.output_dir)
 
     # ---- Optional: residual path patching (if you kept scan_residual_patching) ----
     try:
         print("\nRunning residual path patching scan on a single IOI pair...")
         effects, clean_pair, corrupt_pair = scan_residual_patching(model)
-        effects_cpu = effects.detach().cpu().numpy()
-
-        plt.figure(figsize=(10, 6))
-        plt.imshow(effects_cpu, aspect="auto")
-        plt.xlabel("Token position")
-        plt.ylabel("Layer")
-        plt.title("Residual patching effect\nΔ logit_diff (patched - corrupt)")
-        plt.colorbar(label="Δ logit_diff")
-        plt.tight_layout()
-        plt.savefig("resid_patching_heatmap.png", dpi=160)
-        plt.close()
-        print("Saved residual patching heatmap to: resid_patching_heatmap.png")
+        save_residual_patching_heatmap(effects, output_dir=config.output_dir)
     except NameError:
         print("\nscan_residual_patching not defined – skipping path patching.")
 
