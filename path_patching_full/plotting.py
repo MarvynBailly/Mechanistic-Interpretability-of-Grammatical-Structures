@@ -29,6 +29,8 @@ def save_heatmap(
     dpi: int = 160,
     cmap: str = "viridis",
     figsize: Tuple[int, int] = (10, 6),
+    VMIN: float = None,
+    VMAX: float = None,
 ):
     """
     Save a generic heatmap visualization.
@@ -53,8 +55,13 @@ def save_heatmap(
     
     data_cpu = data.detach().cpu().numpy()
     
+    if VMIN is None:
+        VMIN = data_cpu.min()
+    if VMAX is None:
+        VMAX = data_cpu.max()
+    
     plt.figure(figsize=figsize)
-    im = plt.imshow(data_cpu, aspect="auto", cmap=cmap, vmin=-.6, vmax=.6)
+    im = plt.imshow(data_cpu, aspect="auto", cmap=cmap, vmin=VMIN, vmax=VMAX)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)

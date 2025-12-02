@@ -32,7 +32,7 @@ The paper proposes that GPT-2 small implements a similar algorithm using attenti
 ![From the "Interpretability in the Wild" paper](results/README/gpt2-circuit.png)
 
 ## Data Set Generation
-We generated a data set $\text{p}_\text{IoI}$ of IOI sentences using the scripts in the `data_generation_simple/` folder. Similarly, we will use $\text{p}_\text{IoI-corrupt}$, a corrupted version of the data set where all names are replaced with random names. More information about the data set can be found ![here](data_generation_simple/README.md).
+We generated a data set $\text{p}_\text{IoI}$ of IOI sentences using the scripts in the `data_generation_simple/` folder. Similarly, we will use $\text{p}_\text{IoI-corrupt}$, a corrupted version of the data set where all names are replaced with random names. More information about the data set can be found [here](data_generation_simple/README.md).
 
 
 ## Mechanistic Interpretability via Path Patching
@@ -66,7 +66,26 @@ The algorthim can be summarized in five steps
 4. In this forwad pass, save the activation of the model components $r \in R$ as if they were recomputed.
 5. Run a last forwad pass on $x_\text{origin}$ patching the reciever nodes in $R$ to the saved values.
 
+### Finding Significant Heads
+To find the attention heads that play a significant role in the IOI task, we will patch each head $h$ in the model one at a time, and measure the logit difference change when patching the head. The logit difference is defined as the difference between the logit of the correct indirect object token and the logit of the repeated subject token. Rather than using the full path patching algorithm described aboved, we can use a simplification since we are only patching one head at a time. The simplified algorithm is as follows:
 
+1. Run CLEAN forward pass → cache head h's output
+2. Run CORRUPT forward pass → get corrupt logit_diff baseline
+3. Run CORRUPT forward pass BUT replace head h with cached clean output
+4. Measure: patched_logit_diff - corrupt_logit_diff
+
+In short, we run the clean model and cache the output of head $h$ and all of its downstream computations. We then run the corrupt model, but replace head $h$'s output with the cached clean output. The difference in logit difference between the patched corrupt model and the original corrupt model tells us how much head $h$ contributes to the IOI task. For example, a useless head in the IOI task will have little to no effect when patching the corrupted model. Conversely, an important head will significantly increase the logit difference when patched with the clean output. 
+
+The discussion on the [implementation](path_patching_full/direct_effect_analysis.py) can be found in [name movers notes](path_patching_full/name_movers.md).
+
+The results are summarized in the following figure:
+
+
+![Path Patching Results](results/name_mover/100_examples/figure_3b_path_patching.png)
+
+Heads with significant positive effects are seen in red. These are the heads, that when the corrupt model uses the clean output, significantly increase the logit difference towards the correct indirect object token. These heads are likely important for solving the IOI task. These are the heads that correspond to the proposed Name Mover heads in the "Interpretability in the Wild" paper. 
+
+Interestingly, there are also heads with significant negative effects (blue). These heads, when patched with the clean output, actually decrease the logit difference towards the correct indirect object token. These are the heads that correspond to the proposed Negative Name Mover heads in the "Interpretability in the Wild" paper.
 
 
 
@@ -191,8 +210,8 @@ The corrupt version uses completely different names to test what happens when th
 ## To Do
 - [x] Native speaker needs to read through translated [templates](data_generation/input/templates.json)
 - [x] Native speaker needs to read through translated [words](data_generation/input/words.json)
-- [ ] Understand what is going on
-- [ ] Implement unmasked IOI on English dataset
+- [x] Understand what is going on
+- [x] Implement unmasked IOI on English dataset
 - [ ] Implement unmasked IOI on Chinese dataset
 - [ ] Implement masked IOI on English dataset
 - [ ] Implement masked IOI on Chinese dataset

@@ -105,7 +105,7 @@ def path_patch_head_to_logits(
     
     # Path patching effect: how much did patching recover from corrupt to clean?
     # Positive = head is important (patching helps)
-    effect = corrupt_diff - patched_diff
+    effect = patched_diff - corrupt_diff
     
     return effect
 
@@ -354,9 +354,9 @@ def main():
     # Configuration
     MODEL_NAME = "gpt2-small"
     DATASET_SIZE = "large"
-    N_EXAMPLES = 1000  # Paper uses N=1000 for copy score, we'll use 100 for speed
+    N_EXAMPLES = 100  # Paper uses N=1000 for copy score, we'll use 100 for speed
     SEED = 42
-    OUTPUT_DIR = "path_patching_results"
+    OUTPUT_DIR = f"results/name_mover/{N_EXAMPLES}_examples"
     
     # Setup
     set_seed(SEED)
@@ -438,105 +438,107 @@ def main():
         xlabel="Head",
         ylabel="Layer",
         colorbar_label="Path Patching Effect",
-        cmap="RdBu",  # Diverging colormap: red=positive (Name Movers), blue=negative
+        cmap="RdBu_r",  # Diverging colormap: red=positive (Name Movers), blue=negative
         figsize=(12, 8),
+        VMIN =-0.6,
+        VMAX = 0.6,
     )
     
-    print("\n" + "="*70)
-    print("COPY SCORE ANALYSIS")
-    print("Testing if Name Mover Heads copy names via OV matrices")
-    print("="*70)
+    # print("\n" + "="*70)
+    # print("COPY SCORE ANALYSIS")
+    # print("Testing if Name Mover Heads copy names via OV matrices")
+    # print("="*70)
     
-    # Compute copy scores (Name Mover Heads should score >95%)
-    print("\n1. Testing positive copy scores (Name Mover Heads):")
-    print("Paper reports: Name Mover Heads >95%, average head <20%")
-    copy_scores = compute_all_copy_scores(
-        model, clean_tokens, io_toks, s_toks,
-        top_k=5, negative=False
-    )
+    # # Compute copy scores (Name Mover Heads should score >95%)
+    # print("\n1. Testing positive copy scores (Name Mover Heads):")
+    # print("Paper reports: Name Mover Heads >95%, average head <20%")
+    # copy_scores = compute_all_copy_scores(
+    #     model, clean_tokens, io_toks, s_toks,
+    #     top_k=5, negative=False
+    # )
     
-    # Print statistics
-    print(f"\nCopy Score Statistics:")
-    print(f"Mean copy score: {copy_scores.mean().item():.1%}")
-    print(f"Max copy score:  {copy_scores.max().item():.1%}")
+    # # Print statistics
+    # print(f"\nCopy Score Statistics:")
+    # print(f"Mean copy score: {copy_scores.mean().item():.1%}")
+    # print(f"Max copy score:  {copy_scores.max().item():.1%}")
     
-    # Find heads with highest copy scores
-    flat_scores = copy_scores.flatten()
-    flat_indices = flat_scores.argsort(descending=True)
+    # # Find heads with highest copy scores
+    # flat_scores = copy_scores.flatten()
+    # flat_indices = flat_scores.argsort(descending=True)
     
-    print(f"\nTop 10 heads by copy score (likely Name Mover Heads):")
-    for i in range(10):
-        idx = flat_indices[i].item()
-        layer = idx // model.cfg.n_heads
-        head = idx % model.cfg.n_heads
-        score = flat_scores[idx].item()
-        # Also show direct effect for comparison
-        direct_eff = effects[layer, head].item()
-        print(f"  {i+1}. L{layer}H{head}: {score:.1%} copy score, {direct_eff:.4f} direct effect")
+    # print(f"\nTop 10 heads by copy score (likely Name Mover Heads):")
+    # for i in range(10):
+    #     idx = flat_indices[i].item()
+    #     layer = idx // model.cfg.n_heads
+    #     head = idx % model.cfg.n_heads
+    #     score = flat_scores[idx].item()
+    #     # Also show direct effect for comparison
+    #     direct_eff = effects[layer, head].item()
+    #     print(f"  {i+1}. L{layer}H{head}: {score:.1%} copy score, {direct_eff:.4f} direct effect")
     
-    # Save copy score heatmap
-    print(f"\nSaving copy score heatmap to {OUTPUT_DIR}/copy_score_heatmap.png...")
-    save_heatmap(
-        data=copy_scores,
-        title="Copy Score: Proportion of Samples with Name in Top-5 Logits\n(via OV Matrix Analysis)",
-        filename="copy_score_heatmap.png",
-        output_dir=OUTPUT_DIR,
-        xlabel="Head",
-        ylabel="Layer",
-        colorbar_label="Copy Score",
-        cmap="viridis",
-        figsize=(12, 8),
-    )
+    # # Save copy score heatmap
+    # print(f"\nSaving copy score heatmap to {OUTPUT_DIR}/copy_score_heatmap.png...")
+    # save_heatmap(
+    #     data=copy_scores,
+    #     title="Copy Score: Proportion of Samples with Name in Top-5 Logits\n(via OV Matrix Analysis)",
+    #     filename="copy_score_heatmap.png",
+    #     output_dir=OUTPUT_DIR,
+    #     xlabel="Head",
+    #     ylabel="Layer",
+    #     colorbar_label="Copy Score",
+    #     cmap="viridis",
+    #     figsize=(12, 8),
+    # )
     
-    # Compute negative copy scores (Negative Name Mover Heads should score >98%)
-    print("\n2. Testing negative copy scores (Negative Name Mover Heads):")
-    print("Paper reports: Negative Name Mover Heads >98%, average head <12%")
-    negative_copy_scores = compute_all_copy_scores(
-        model, clean_tokens, io_toks, s_toks,
-        top_k=5, negative=True
-    )
+    # # Compute negative copy scores (Negative Name Mover Heads should score >98%)
+    # print("\n2. Testing negative copy scores (Negative Name Mover Heads):")
+    # print("Paper reports: Negative Name Mover Heads >98%, average head <12%")
+    # negative_copy_scores = compute_all_copy_scores(
+    #     model, clean_tokens, io_toks, s_toks,
+    #     top_k=5, negative=True
+    # )
     
-    print(f"\nNegative Copy Score Statistics:")
-    print(f"Mean negative copy score: {negative_copy_scores.mean().item():.1%}")
-    print(f"Max negative copy score:  {negative_copy_scores.max().item():.1%}")
+    # print(f"\nNegative Copy Score Statistics:")
+    # print(f"Mean negative copy score: {negative_copy_scores.mean().item():.1%}")
+    # print(f"Max negative copy score:  {negative_copy_scores.max().item():.1%}")
     
-    # Find heads with highest negative copy scores
-    flat_neg_scores = negative_copy_scores.flatten()
-    flat_neg_indices = flat_neg_scores.argsort(descending=True)
+    # # Find heads with highest negative copy scores
+    # flat_neg_scores = negative_copy_scores.flatten()
+    # flat_neg_indices = flat_neg_scores.argsort(descending=True)
     
-    print(f"\nTop 10 heads by negative copy score (likely Negative Name Mover Heads):")
-    for i in range(10):
-        idx = flat_neg_indices[i].item()
-        layer = idx // model.cfg.n_heads
-        head = idx % model.cfg.n_heads
-        score = flat_neg_scores[idx].item()
-        direct_eff = effects[layer, head].item()
-        print(f"  {i+1}. L{layer}H{head}: {score:.1%} negative copy score, {direct_eff:.4f} direct effect")
+    # print(f"\nTop 10 heads by negative copy score (likely Negative Name Mover Heads):")
+    # for i in range(10):
+    #     idx = flat_neg_indices[i].item()
+    #     layer = idx // model.cfg.n_heads
+    #     head = idx % model.cfg.n_heads
+    #     score = flat_neg_scores[idx].item()
+    #     direct_eff = effects[layer, head].item()
+    #     print(f"  {i+1}. L{layer}H{head}: {score:.1%} negative copy score, {direct_eff:.4f} direct effect")
     
-    # Save negative copy score heatmap
-    print(f"\nSaving negative copy score heatmap to {OUTPUT_DIR}/negative_copy_score_heatmap.png...")
-    save_heatmap(
-        data=negative_copy_scores,
-        title="Negative Copy Score: Heads that Write Opposite of Names\n(via -OV Matrix Analysis)",
-        filename="negative_copy_score_heatmap.png",
-        output_dir=OUTPUT_DIR,
-        xlabel="Head",
-        ylabel="Layer",
-        colorbar_label="Negative Copy Score",
-        cmap="plasma",
-        figsize=(12, 8),
-    )
+    # # Save negative copy score heatmap
+    # print(f"\nSaving negative copy score heatmap to {OUTPUT_DIR}/negative_copy_score_heatmap.png...")
+    # save_heatmap(
+    #     data=negative_copy_scores,
+    #     title="Negative Copy Score: Heads that Write Opposite of Names\n(via -OV Matrix Analysis)",
+    #     filename="negative_copy_score_heatmap.png",
+    #     output_dir=OUTPUT_DIR,
+    #     xlabel="Head",
+    #     ylabel="Layer",
+    #     colorbar_label="Negative Copy Score",
+    #     cmap="plasma",
+    #     figsize=(12, 8),
+    # )
     
-    print("\n" + "="*70)
-    print("DONE! Figure 3b Recreation Complete")
-    print("="*70)
-    print(f"\nResults saved to {OUTPUT_DIR}/:")
-    print(f"  - figure_3b_path_patching.png  (Main result)")
-    print(f"  - copy_score_heatmap.png       (Name Mover verification)")
-    print(f"  - negative_copy_score_heatmap.png  (Negative Name Mover verification)")
-    print(f"\nCompare your figure_3b_path_patching.png with the paper's Figure 3b")
-    print(f"Expected Name Movers: 9.9, 10.0, 9.6")
-    print(f"Expected Negative Movers: 10.7, 11.10")
+    # print("\n" + "="*70)
+    # print("DONE! Figure 3b Recreation Complete")
+    # print("="*70)
+    # print(f"\nResults saved to {OUTPUT_DIR}/:")
+    # print(f"  - figure_3b_path_patching.png  (Main result)")
+    # print(f"  - copy_score_heatmap.png       (Name Mover verification)")
+    # print(f"  - negative_copy_score_heatmap.png  (Negative Name Mover verification)")
+    # print(f"\nCompare your figure_3b_path_patching.png with the paper's Figure 3b")
+    # print(f"Expected Name Movers: 9.9, 10.0, 9.6")
+    # print(f"Expected Negative Movers: 10.7, 11.10")
 
 
 if __name__ == "__main__":
