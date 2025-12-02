@@ -1,0 +1,706 @@
+{
+  "n_examples": 100,
+  "description": "Clean/corrupt IOI pairs for path patching",
+  "pairs": [
+    {
+      "clean": "When Lisa and David were at the park, David handed the book to",
+      "corrupt": "When Patricia and Robert were at the park, Betty handed the book to",
+      "io_name": "Lisa",
+      "s_name": "David",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "When Lisa and Mark were at the park, Mark handed the bottle to",
+      "corrupt": "When Sarah and James were at the park, Charles handed the bottle to",
+      "io_name": "Lisa",
+      "s_name": "Mark",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "After John and James arrived home, James handed the book to",
+      "corrupt": "After David and Jennifer arrived home, Charles handed the book to",
+      "io_name": "John",
+      "s_name": "James",
+      "io_token": " John"
+    },
+    {
+      "clean": "When Michael and Daniel went to the store, Daniel gave the key to",
+      "corrupt": "When Nancy and Matthew went to the store, Charles gave the key to",
+      "io_name": "Michael",
+      "s_name": "Daniel",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "After Joseph and Charles arrived home, Charles handed the letter to",
+      "corrupt": "After David and Margaret arrived home, Sandra handed the letter to",
+      "io_name": "Joseph",
+      "s_name": "Charles",
+      "io_token": " Joseph"
+    },
+    {
+      "clean": "When Daniel and Barbara went to the store, Barbara gave the apple to",
+      "corrupt": "When William and David went to the store, Robert gave the apple to",
+      "io_name": "Daniel",
+      "s_name": "Barbara",
+      "io_token": " Daniel"
+    },
+    {
+      "clean": "When Susan and James met at the cafe, James gave the card to",
+      "corrupt": "When Joseph and Linda met at the cafe, Barbara gave the card to",
+      "io_name": "Susan",
+      "s_name": "James",
+      "io_token": " Susan"
+    },
+    {
+      "clean": "When David and Betty were talking, Betty offered the note to",
+      "corrupt": "When Mary and Matthew were talking, Jessica offered the note to",
+      "io_name": "David",
+      "s_name": "Betty",
+      "io_token": " David"
+    },
+    {
+      "clean": "When James and Sarah were at the park, Sarah handed the gift to",
+      "corrupt": "When William and Mark were at the park, Daniel handed the gift to",
+      "io_name": "James",
+      "s_name": "Sarah",
+      "io_token": " James"
+    },
+    {
+      "clean": "When Michael and Daniel were talking, Daniel offered the note to",
+      "corrupt": "When James and Mary were talking, Lisa offered the note to",
+      "io_name": "Michael",
+      "s_name": "Daniel",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "When James and Margaret met at the cafe, Margaret gave the message to",
+      "corrupt": "When David and Sandra met at the cafe, Robert gave the message to",
+      "io_name": "James",
+      "s_name": "Margaret",
+      "io_token": " James"
+    },
+    {
+      "clean": "After Joseph and Christopher arrived home, Christopher handed the message to",
+      "corrupt": "After Mark and Elizabeth arrived home, Linda handed the message to",
+      "io_name": "Joseph",
+      "s_name": "Christopher",
+      "io_token": " Joseph"
+    },
+    {
+      "clean": "When Michael and Nancy were talking, Nancy offered the card to",
+      "corrupt": "When Jennifer and Matthew were talking, Lisa offered the card to",
+      "io_name": "Michael",
+      "s_name": "Nancy",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "When Christopher and Linda were at the park, Linda handed the note to",
+      "corrupt": "When Charles and Betty were at the park, David handed the note to",
+      "io_name": "Christopher",
+      "s_name": "Linda",
+      "io_token": " Christopher"
+    },
+    {
+      "clean": "After Richard and David went to the library, David showed the phone to",
+      "corrupt": "After Daniel and Matthew went to the library, Karen showed the phone to",
+      "io_name": "Richard",
+      "s_name": "David",
+      "io_token": " Richard"
+    },
+    {
+      "clean": "When William and Anthony met at the cafe, Anthony gave the bottle to",
+      "corrupt": "When Betty and Mary met at the cafe, Patricia gave the bottle to",
+      "io_name": "William",
+      "s_name": "Anthony",
+      "io_token": " William"
+    },
+    {
+      "clean": "When Richard and David went to the store, David gave the card to",
+      "corrupt": "When James and Michael went to the store, Christopher gave the card to",
+      "io_name": "Richard",
+      "s_name": "David",
+      "io_token": " Richard"
+    },
+    {
+      "clean": "When Christopher and Jessica were talking, Jessica offered the letter to",
+      "corrupt": "When Richard and Daniel were talking, Joseph offered the letter to",
+      "io_name": "Christopher",
+      "s_name": "Jessica",
+      "io_token": " Christopher"
+    },
+    {
+      "clean": "After Robert and Patricia went to the library, Patricia showed the message to",
+      "corrupt": "After Betty and Karen went to the library, William showed the message to",
+      "io_name": "Robert",
+      "s_name": "Patricia",
+      "io_token": " Robert"
+    },
+    {
+      "clean": "After Richard and Elizabeth arrived home, Elizabeth handed the note to",
+      "corrupt": "After Patricia and Robert arrived home, Charles handed the note to",
+      "io_name": "Richard",
+      "s_name": "Elizabeth",
+      "io_token": " Richard"
+    },
+    {
+      "clean": "When Matthew and Mary were shopping, Mary bought the pen for",
+      "corrupt": "When Sandra and Robert were shopping, Linda bought the pen for",
+      "io_name": "Matthew",
+      "s_name": "Mary",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "After Barbara and Karen went to the library, Karen showed the bottle to",
+      "corrupt": "After James and Richard went to the library, Nancy showed the bottle to",
+      "io_name": "Barbara",
+      "s_name": "Karen",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "When David and Sarah were shopping, Sarah bought the key for",
+      "corrupt": "When Sandra and John were shopping, Lisa bought the key for",
+      "io_name": "David",
+      "s_name": "Sarah",
+      "io_token": " David"
+    },
+    {
+      "clean": "When Mark and Sarah were at the park, Sarah handed the bottle to",
+      "corrupt": "When Betty and David were at the park, Nancy handed the bottle to",
+      "io_name": "Mark",
+      "s_name": "Sarah",
+      "io_token": " Mark"
+    },
+    {
+      "clean": "When Jennifer and Barbara were talking, Barbara offered the pen to",
+      "corrupt": "When Linda and Thomas were talking, John offered the pen to",
+      "io_name": "Jennifer",
+      "s_name": "Barbara",
+      "io_token": " Jennifer"
+    },
+    {
+      "clean": "While Matthew and Linda were working, Linda passed the key to",
+      "corrupt": "While Sarah and Susan were working, Sandra passed the key to",
+      "io_name": "Matthew",
+      "s_name": "Linda",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "While Thomas and Karen were working, Karen passed the bottle to",
+      "corrupt": "While Michael and Robert were working, Elizabeth passed the bottle to",
+      "io_name": "Thomas",
+      "s_name": "Karen",
+      "io_token": " Thomas"
+    },
+    {
+      "clean": "After Matthew and Sandra went to the library, Sandra showed the key to",
+      "corrupt": "After Thomas and John went to the library, Karen showed the key to",
+      "io_name": "Matthew",
+      "s_name": "Sandra",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "When John and Susan were talking, Susan offered the phone to",
+      "corrupt": "When Barbara and Mark were talking, Margaret offered the phone to",
+      "io_name": "John",
+      "s_name": "Susan",
+      "io_token": " John"
+    },
+    {
+      "clean": "While Mary and Patricia were working, Patricia passed the letter to",
+      "corrupt": "While Christopher and Susan were working, Betty passed the letter to",
+      "io_name": "Mary",
+      "s_name": "Patricia",
+      "io_token": " Mary"
+    },
+    {
+      "clean": "When Matthew and Sarah were shopping, Sarah bought the pen for",
+      "corrupt": "When Anthony and Robert were shopping, Daniel bought the pen for",
+      "io_name": "Matthew",
+      "s_name": "Sarah",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "When Linda and David were shopping, David bought the key for",
+      "corrupt": "When Charles and Sandra were shopping, Nancy bought the key for",
+      "io_name": "Linda",
+      "s_name": "David",
+      "io_token": " Linda"
+    },
+    {
+      "clean": "After Sandra and Sarah arrived home, Sarah handed the letter to",
+      "corrupt": "After Betty and Matthew arrived home, Lisa handed the letter to",
+      "io_name": "Sandra",
+      "s_name": "Sarah",
+      "io_token": " Sandra"
+    },
+    {
+      "clean": "When Jennifer and Richard met at the cafe, Richard gave the package to",
+      "corrupt": "When Lisa and Daniel met at the cafe, Barbara gave the package to",
+      "io_name": "Jennifer",
+      "s_name": "Richard",
+      "io_token": " Jennifer"
+    },
+    {
+      "clean": "When Joseph and Susan were shopping, Susan bought the key for",
+      "corrupt": "When David and James were shopping, Elizabeth bought the key for",
+      "io_name": "Joseph",
+      "s_name": "Susan",
+      "io_token": " Joseph"
+    },
+    {
+      "clean": "When Sarah and Patricia went to the store, Patricia gave the note to",
+      "corrupt": "When Christopher and David went to the store, John gave the note to",
+      "io_name": "Sarah",
+      "s_name": "Patricia",
+      "io_token": " Sarah"
+    },
+    {
+      "clean": "When Christopher and Mary were at the park, Mary handed the package to",
+      "corrupt": "When David and Susan were at the park, James handed the package to",
+      "io_name": "Christopher",
+      "s_name": "Mary",
+      "io_token": " Christopher"
+    },
+    {
+      "clean": "When Thomas and Patricia were talking, Patricia offered the pen to",
+      "corrupt": "When Jennifer and Lisa were talking, Sarah offered the pen to",
+      "io_name": "Thomas",
+      "s_name": "Patricia",
+      "io_token": " Thomas"
+    },
+    {
+      "clean": "When Robert and Lisa met at the cafe, Lisa gave the key to",
+      "corrupt": "When Karen and Thomas met at the cafe, David gave the key to",
+      "io_name": "Robert",
+      "s_name": "Lisa",
+      "io_token": " Robert"
+    },
+    {
+      "clean": "When Michael and Susan were shopping, Susan bought the gift for",
+      "corrupt": "When Robert and Lisa were shopping, Jessica bought the gift for",
+      "io_name": "Michael",
+      "s_name": "Susan",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "When Barbara and Joseph were talking, Joseph offered the gift to",
+      "corrupt": "When Sandra and Betty were talking, Mary offered the gift to",
+      "io_name": "Barbara",
+      "s_name": "Joseph",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "When Richard and Lisa were at the park, Lisa handed the book to",
+      "corrupt": "When William and Margaret were at the park, Sandra handed the book to",
+      "io_name": "Richard",
+      "s_name": "Lisa",
+      "io_token": " Richard"
+    },
+    {
+      "clean": "When Michael and Sarah were at the park, Sarah handed the letter to",
+      "corrupt": "When Jessica and Robert were at the park, Joseph handed the letter to",
+      "io_name": "Michael",
+      "s_name": "Sarah",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "After Joseph and Patricia went to the library, Patricia showed the message to",
+      "corrupt": "After Sandra and James went to the library, Thomas showed the message to",
+      "io_name": "Joseph",
+      "s_name": "Patricia",
+      "io_token": " Joseph"
+    },
+    {
+      "clean": "When Christopher and Sarah were at the park, Sarah handed the book to",
+      "corrupt": "When Mark and John were at the park, James handed the book to",
+      "io_name": "Christopher",
+      "s_name": "Sarah",
+      "io_token": " Christopher"
+    },
+    {
+      "clean": "When Barbara and Jessica met at the cafe, Jessica gave the apple to",
+      "corrupt": "When Sarah and Michael met at the cafe, Sandra gave the apple to",
+      "io_name": "Barbara",
+      "s_name": "Jessica",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "After Linda and Richard arrived home, Richard handed the book to",
+      "corrupt": "After John and Joseph arrived home, Jennifer handed the book to",
+      "io_name": "Linda",
+      "s_name": "Richard",
+      "io_token": " Linda"
+    },
+    {
+      "clean": "When Barbara and Daniel were shopping, Daniel bought the message for",
+      "corrupt": "When Betty and Margaret were shopping, Charles bought the message for",
+      "io_name": "Barbara",
+      "s_name": "Daniel",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "When Michael and Jennifer were shopping, Jennifer bought the apple for",
+      "corrupt": "When Patricia and Mary were shopping, Christopher bought the apple for",
+      "io_name": "Michael",
+      "s_name": "Jennifer",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "When William and Mary went to the store, Mary gave the package to",
+      "corrupt": "When James and Christopher went to the store, Sarah gave the package to",
+      "io_name": "William",
+      "s_name": "Mary",
+      "io_token": " William"
+    },
+    {
+      "clean": "After Thomas and James went to the library, James showed the book to",
+      "corrupt": "After Sandra and Michael went to the library, Susan showed the book to",
+      "io_name": "Thomas",
+      "s_name": "James",
+      "io_token": " Thomas"
+    },
+    {
+      "clean": "When Margaret and Patricia were at the park, Patricia handed the bottle to",
+      "corrupt": "When Barbara and Susan were at the park, Karen handed the bottle to",
+      "io_name": "Margaret",
+      "s_name": "Patricia",
+      "io_token": " Margaret"
+    },
+    {
+      "clean": "When Karen and Mary met at the cafe, Mary gave the note to",
+      "corrupt": "When Nancy and Susan met at the cafe, Joseph gave the note to",
+      "io_name": "Karen",
+      "s_name": "Mary",
+      "io_token": " Karen"
+    },
+    {
+      "clean": "When Michael and Nancy were talking, Nancy offered the message to",
+      "corrupt": "When Matthew and Elizabeth were talking, David offered the message to",
+      "io_name": "Michael",
+      "s_name": "Nancy",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "While Robert and Nancy were working, Nancy passed the gift to",
+      "corrupt": "While Daniel and William were working, Jessica passed the gift to",
+      "io_name": "Robert",
+      "s_name": "Nancy",
+      "io_token": " Robert"
+    },
+    {
+      "clean": "When John and Joseph were talking, Joseph offered the pen to",
+      "corrupt": "When Nancy and Christopher were talking, Robert offered the pen to",
+      "io_name": "John",
+      "s_name": "Joseph",
+      "io_token": " John"
+    },
+    {
+      "clean": "When Michael and Thomas were at the park, Thomas handed the key to",
+      "corrupt": "When Jennifer and Robert were at the park, Richard handed the key to",
+      "io_name": "Michael",
+      "s_name": "Thomas",
+      "io_token": " Michael"
+    },
+    {
+      "clean": "When Elizabeth and Jennifer were at the park, Jennifer handed the letter to",
+      "corrupt": "When Linda and Thomas were at the park, Mark handed the letter to",
+      "io_name": "Elizabeth",
+      "s_name": "Jennifer",
+      "io_token": " Elizabeth"
+    },
+    {
+      "clean": "While Betty and Christopher were working, Christopher passed the note to",
+      "corrupt": "While Thomas and John were working, Daniel passed the note to",
+      "io_name": "Betty",
+      "s_name": "Christopher",
+      "io_token": " Betty"
+    },
+    {
+      "clean": "While Susan and Mark were working, Mark passed the bottle to",
+      "corrupt": "While Linda and Jennifer were working, Robert passed the bottle to",
+      "io_name": "Susan",
+      "s_name": "Mark",
+      "io_token": " Susan"
+    },
+    {
+      "clean": "When Sarah and Robert were at the park, Robert handed the package to",
+      "corrupt": "When Jennifer and William were at the park, Nancy handed the package to",
+      "io_name": "Sarah",
+      "s_name": "Robert",
+      "io_token": " Sarah"
+    },
+    {
+      "clean": "When William and Michael met at the cafe, Michael gave the package to",
+      "corrupt": "When Lisa and Daniel met at the cafe, Sandra gave the package to",
+      "io_name": "William",
+      "s_name": "Michael",
+      "io_token": " William"
+    },
+    {
+      "clean": "While Jessica and David were working, David passed the key to",
+      "corrupt": "While Sandra and Mary were working, James passed the key to",
+      "io_name": "Jessica",
+      "s_name": "David",
+      "io_token": " Jessica"
+    },
+    {
+      "clean": "After Mary and John arrived home, John handed the message to",
+      "corrupt": "After Richard and Anthony arrived home, Michael handed the message to",
+      "io_name": "Mary",
+      "s_name": "John",
+      "io_token": " Mary"
+    },
+    {
+      "clean": "While Lisa and Joseph were working, Joseph passed the apple to",
+      "corrupt": "While Charles and Matthew were working, Barbara passed the apple to",
+      "io_name": "Lisa",
+      "s_name": "Joseph",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "When James and Mark went to the store, Mark gave the pen to",
+      "corrupt": "When Lisa and Linda went to the store, Charles gave the pen to",
+      "io_name": "James",
+      "s_name": "Mark",
+      "io_token": " James"
+    },
+    {
+      "clean": "When Charles and Sarah went to the store, Sarah gave the card to",
+      "corrupt": "When Robert and Barbara went to the store, Mary gave the card to",
+      "io_name": "Charles",
+      "s_name": "Sarah",
+      "io_token": " Charles"
+    },
+    {
+      "clean": "While Mark and Sandra were working, Sandra passed the card to",
+      "corrupt": "While Betty and Margaret were working, Mary passed the card to",
+      "io_name": "Mark",
+      "s_name": "Sandra",
+      "io_token": " Mark"
+    },
+    {
+      "clean": "When Nancy and Patricia were talking, Patricia offered the letter to",
+      "corrupt": "When Lisa and Susan were talking, Richard offered the letter to",
+      "io_name": "Nancy",
+      "s_name": "Patricia",
+      "io_token": " Nancy"
+    },
+    {
+      "clean": "After Lisa and Robert arrived home, Robert handed the note to",
+      "corrupt": "After David and Sandra arrived home, Michael handed the note to",
+      "io_name": "Lisa",
+      "s_name": "Robert",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "After John and Linda went to the library, Linda showed the gift to",
+      "corrupt": "After Betty and Richard went to the library, Margaret showed the gift to",
+      "io_name": "John",
+      "s_name": "Linda",
+      "io_token": " John"
+    },
+    {
+      "clean": "After Margaret and Lisa arrived home, Lisa handed the bottle to",
+      "corrupt": "After Anthony and Patricia arrived home, David handed the bottle to",
+      "io_name": "Margaret",
+      "s_name": "Lisa",
+      "io_token": " Margaret"
+    },
+    {
+      "clean": "After Susan and Richard went to the library, Richard showed the package to",
+      "corrupt": "After Sandra and Mary went to the library, Sarah showed the package to",
+      "io_name": "Susan",
+      "s_name": "Richard",
+      "io_token": " Susan"
+    },
+    {
+      "clean": "When Anthony and Sandra met at the cafe, Sandra gave the letter to",
+      "corrupt": "When Joseph and Elizabeth met at the cafe, Jennifer gave the letter to",
+      "io_name": "Anthony",
+      "s_name": "Sandra",
+      "io_token": " Anthony"
+    },
+    {
+      "clean": "When John and Nancy met at the cafe, Nancy gave the letter to",
+      "corrupt": "When Patricia and Barbara met at the cafe, Elizabeth gave the letter to",
+      "io_name": "John",
+      "s_name": "Nancy",
+      "io_token": " John"
+    },
+    {
+      "clean": "While Matthew and David were working, David passed the pen to",
+      "corrupt": "While Richard and Nancy were working, Sarah passed the pen to",
+      "io_name": "Matthew",
+      "s_name": "David",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "After Anthony and Sarah arrived home, Sarah handed the bottle to",
+      "corrupt": "After William and John arrived home, Susan handed the bottle to",
+      "io_name": "Anthony",
+      "s_name": "Sarah",
+      "io_token": " Anthony"
+    },
+    {
+      "clean": "While Charles and David were working, David passed the apple to",
+      "corrupt": "While Mary and Susan were working, Nancy passed the apple to",
+      "io_name": "Charles",
+      "s_name": "David",
+      "io_token": " Charles"
+    },
+    {
+      "clean": "After Lisa and Betty arrived home, Betty handed the card to",
+      "corrupt": "After William and Barbara arrived home, Karen handed the card to",
+      "io_name": "Lisa",
+      "s_name": "Betty",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "When Mark and Charles were at the park, Charles handed the gift to",
+      "corrupt": "When Michael and David were at the park, Mary handed the gift to",
+      "io_name": "Mark",
+      "s_name": "Charles",
+      "io_token": " Mark"
+    },
+    {
+      "clean": "After Thomas and Sandra arrived home, Sandra handed the book to",
+      "corrupt": "After Anthony and Charles arrived home, Daniel handed the book to",
+      "io_name": "Thomas",
+      "s_name": "Sandra",
+      "io_token": " Thomas"
+    },
+    {
+      "clean": "When Barbara and James met at the cafe, James gave the card to",
+      "corrupt": "When Lisa and Elizabeth met at the cafe, Nancy gave the card to",
+      "io_name": "Barbara",
+      "s_name": "James",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "When Margaret and Susan were talking, Susan offered the bottle to",
+      "corrupt": "When Matthew and William were talking, Sarah offered the bottle to",
+      "io_name": "Margaret",
+      "s_name": "Susan",
+      "io_token": " Margaret"
+    },
+    {
+      "clean": "While Barbara and William were working, William passed the bottle to",
+      "corrupt": "While Joseph and Matthew were working, Jennifer passed the bottle to",
+      "io_name": "Barbara",
+      "s_name": "William",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "After Barbara and Nancy went to the library, Nancy showed the letter to",
+      "corrupt": "After Richard and Lisa went to the library, Betty showed the letter to",
+      "io_name": "Barbara",
+      "s_name": "Nancy",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "After Charles and Jennifer went to the library, Jennifer showed the note to",
+      "corrupt": "After Barbara and Karen went to the library, Mark showed the note to",
+      "io_name": "Charles",
+      "s_name": "Jennifer",
+      "io_token": " Charles"
+    },
+    {
+      "clean": "When Jennifer and Michael went to the store, Michael gave the message to",
+      "corrupt": "When Jessica and Margaret went to the store, Christopher gave the message to",
+      "io_name": "Jennifer",
+      "s_name": "Michael",
+      "io_token": " Jennifer"
+    },
+    {
+      "clean": "When Joseph and Nancy were talking, Nancy offered the phone to",
+      "corrupt": "When Michael and Sarah were talking, Thomas offered the phone to",
+      "io_name": "Joseph",
+      "s_name": "Nancy",
+      "io_token": " Joseph"
+    },
+    {
+      "clean": "After James and Jennifer went to the library, Jennifer showed the bottle to",
+      "corrupt": "After Charles and Lisa went to the library, Daniel showed the bottle to",
+      "io_name": "James",
+      "s_name": "Jennifer",
+      "io_token": " James"
+    },
+    {
+      "clean": "When Anthony and Matthew were talking, Matthew offered the pen to",
+      "corrupt": "When Patricia and Nancy were talking, Jennifer offered the pen to",
+      "io_name": "Anthony",
+      "s_name": "Matthew",
+      "io_token": " Anthony"
+    },
+    {
+      "clean": "When Robert and John met at the cafe, John gave the letter to",
+      "corrupt": "When James and Jennifer met at the cafe, Sarah gave the letter to",
+      "io_name": "Robert",
+      "s_name": "John",
+      "io_token": " Robert"
+    },
+    {
+      "clean": "When Barbara and Mark were at the park, Mark handed the phone to",
+      "corrupt": "When Nancy and Karen were at the park, Michael handed the phone to",
+      "io_name": "Barbara",
+      "s_name": "Mark",
+      "io_token": " Barbara"
+    },
+    {
+      "clean": "After Richard and Patricia arrived home, Patricia handed the phone to",
+      "corrupt": "After Robert and Daniel arrived home, Matthew handed the phone to",
+      "io_name": "Richard",
+      "s_name": "Patricia",
+      "io_token": " Richard"
+    },
+    {
+      "clean": "When Matthew and Barbara went to the store, Barbara gave the pen to",
+      "corrupt": "When Patricia and Linda went to the store, Margaret gave the pen to",
+      "io_name": "Matthew",
+      "s_name": "Barbara",
+      "io_token": " Matthew"
+    },
+    {
+      "clean": "When Sarah and Patricia were shopping, Patricia bought the book for",
+      "corrupt": "When Sandra and Susan were shopping, Jessica bought the book for",
+      "io_name": "Sarah",
+      "s_name": "Patricia",
+      "io_token": " Sarah"
+    },
+    {
+      "clean": "After Nancy and Thomas went to the library, Thomas showed the phone to",
+      "corrupt": "After Charles and Christopher went to the library, William showed the phone to",
+      "io_name": "Nancy",
+      "s_name": "Thomas",
+      "io_token": " Nancy"
+    },
+    {
+      "clean": "When Anthony and Lisa were shopping, Lisa bought the note for",
+      "corrupt": "When Thomas and Barbara were shopping, Mark bought the note for",
+      "io_name": "Anthony",
+      "s_name": "Lisa",
+      "io_token": " Anthony"
+    },
+    {
+      "clean": "When Lisa and Margaret were shopping, Margaret bought the apple for",
+      "corrupt": "When Jessica and Joseph were shopping, David bought the apple for",
+      "io_name": "Lisa",
+      "s_name": "Margaret",
+      "io_token": " Lisa"
+    },
+    {
+      "clean": "When David and Matthew met at the cafe, Matthew gave the bottle to",
+      "corrupt": "When Anthony and Sarah met at the cafe, Thomas gave the bottle to",
+      "io_name": "David",
+      "s_name": "Matthew",
+      "io_token": " David"
+    },
+    {
+      "clean": "When Joseph and James met at the cafe, James gave the message to",
+      "corrupt": "When Matthew and William met at the cafe, David gave the message to",
+      "io_name": "Joseph",
+      "s_name": "James",
+      "io_token": " Joseph"
+    }
+  ]
+}
