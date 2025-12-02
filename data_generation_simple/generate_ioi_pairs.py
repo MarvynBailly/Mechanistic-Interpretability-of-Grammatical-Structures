@@ -1,0 +1,157 @@
+"""
+Simple IOI dataset generator for path patching experiments.
+
+Generates clean/corrupt pairs where:
+- Clean: Standard IOI sentence "When [IO] and [S] went to [place], [S] gave [object] to [IO]"
+- Corrupt: Same sentence but with random names "[R1] and [R2] went to [place], [R2] gave [object] to [R1]"
+
+The corrupt version uses random names (not IO/S) to test what happens when the model
+doesn't have the correct name information to work with.
+"""
+
+import json
+import random
+from pathlib import Path
+from typing import List, Dict, Tuple
+from dataclasses import dataclass
+
+
+@dataclass
+class IOIPair:
+    """A clean/corrupt pair for path patching."""
+    clean_text: str
+    corrupt_text: str
+    io_name: str      # Indirect object in clean
+    s_name: str       # Subject in clean
+    io_token: str     # Expected answer for clean
+    
+    def to_dict(self):
+        return {
+            "clean": self.clean_text,
+            "corrupt": self.corrupt_text,
+            "io_name": self.io_name,
+            "s_name": self.s_name,
+            "io_token": self.io_token,
+        }
+
+
+# Simple names that are single tokens in GPT-2
+NAMES = [
+    "John", "Mary", "James", "Susan", "Robert", "Linda",
+    "Michael", "Patricia", "David", "Jennifer", "William", "Elizabeth",
+    "Richard", "Barbara", "Joseph", "Jessica", "Thomas", "Sarah",
+    "Charles", "Karen", "Christopher", "Nancy", "Daniel", "Lisa",
+    "Matthew", "Betty", "Anthony", "Margaret", "Mark", "Sandra",
+]
+
+# Simple templates - using structure similar to existing data_generation
+TEMPLATES = [
+    "When {IO} and {S1} went to the store, {S2} gave the {object} to",
+    "When {IO} and {S1} were at the park, {S2} handed the {object} to",
+    "After {IO} and {S1} went to the library, {S2} showed the {object} to",
+    "When {IO} and {S1} met at the cafe, {S2} gave the {object} to",
+    "While {IO} and {S1} were working, {S2} passed the {object} to",
+    "When {IO} and {S1} were talking, {S2} offered the {object} to",
+    "After {IO} and {S1} arrived home, {S2} handed the {object} to",
+    "When {IO} and {S1} were shopping, {S2} bought the {object} for",
+]
+
+# Simple objects
+OBJECTS = [
+    "book", "pen", "apple", "letter", "message", "card",
+    "gift", "phone", "key", "note", "bottle", "package",
+]
+
+
+def sample_names(n: int, exclude: List[str] = None) -> List[str]:
+    """Sample n unique names, excluding any in the exclude list."""
+    available = [name for name in NAMES if exclude is None or name not in exclude]
+    if len(available) < n:
+        raise ValueError(f"Not enough names available. Need {n}, have {len(available)}")
+    return random.sample(available, n)
+
+
+def generate_ioi_pair(template: str, obj: str) -> IOIPair:
+    """
+    Generate a single clean/corrupt IOI pair.
+    
+    Clean: Uses IO and S names as intended
+    Corrupt: Uses random names R1, R2 (different from IO and S)
+    """
+    # Sample names for clean sentence
+    io_name, s_name = sample_names(2)
+    
+    # Clean sentence
+    clean_text = template.format(IO=io_name, S1=s_name, S2=s_name, object=obj)
+    
+    # Sample different random names for corrupt
+    r1_name, r2_name, r3_name = sample_names(3, exclude=[io_name, s_name])
+    
+    # Corrupt sentence with random names
+    corrupt_text = template.format(IO=r1_name, S1=r2_name, S2=r3_name, object=obj)
+    
+    return IOIPair(
+        clean_text=clean_text,
+        corrupt_text=corrupt_text,
+        io_name=io_name,
+        s_name=s_name,
+        io_token=f" {io_name}",  # GPT-2 tokenizer includes leading space
+    )
+
+
+def generate_dataset(n_examples: int, seed: int = 42) -> List[IOIPair]:
+    """Generate n_examples of clean/corrupt IOI pairs."""
+    random.seed(seed)
+    
+    pairs = []
+    for _ in range(n_examples):
+        template = random.choice(TEMPLATES)
+        obj = random.choice(OBJECTS)
+        pair = generate_ioi_pair(template, obj)
+        pairs.append(pair)
+    
+    return pairs
+
+
+def save_dataset(pairs: List[IOIPair], output_path: Path):
+    """Save dataset to JSON file."""
+    data = {
+        "n_examples": len(pairs),
+        "description": "Clean/corrupt IOI pairs for path patching",
+        "pairs": [pair.to_dict() for pair in pairs]
+    }
+    
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    
+    print(f"Saved {len(pairs)} pairs to {output_path}")
+
+
+def main():
+    """Generate and save IOI dataset."""
+    # Generate datasets of different sizes
+    sizes = {
+        "small": 100,
+        "medium": 1000,
+        "large": 5000,
+    }
+    
+    output_dir = Path(__file__).parent / "output"
+    
+    for name, size in sizes.items():
+        pairs = generate_dataset(size, seed=42)
+        output_path = output_dir / f"ioi_pairs_{name}.json"
+        save_dataset(pairs, output_path)
+        
+        # Print example
+        if name == "small":
+            print("\nExample pair:")
+            example = pairs[0]
+            print(f"Clean:   {example.clean_text} [{example.io_token}]")
+            print(f"Corrupt: {example.corrupt_text}")
+            print(f"Expected answer: {example.io_token}")
+
+
+if __name__ == "__main__":
+    main()

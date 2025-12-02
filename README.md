@@ -2,7 +2,7 @@
 
 This project implements path patching experiments for analyzing the Indirect Object Identification (IOI) task using GPT-2 small, based on the mechanistic interpretability framework.
 
-
+## IOI Task Overview
 ### IOI Sentences
 A sentence containing IOI begins with an initial dependent clause (e.g., "When Mary and John went to the store,") and ends with a main clause (e.g., "John gave a drink to Mary"). The sentence will introduce a subject (S) and an indirect object (IO) in the dependent clause. In the main clause, the subject will preform an action onto the indirect object (e.g., "John gave a drink to Mary" has John as S and Mary as IO). 
 
@@ -31,12 +31,37 @@ The paper proposes that GPT-2 small implements a similar algorithm using attenti
 
 ![From the "Interpretability in the Wild" paper](results/README/gpt2-circuit.png)
 
+## Data Set Generation
+We generated a data set $\text{p}_\text{IoI}$ of IOI sentences using the scripts in the `data_generation/` folder. Similarly, we will use $\text{p}_\text{IoI-corrupt}$, a corrupted version of the data set where all names are replaced with random names.
 
 
+## Mechanistic Interpretability via Path Patching
+We will implement path patching experiments to verify the proposed circuit. 
 
+### Path Patching Overview
+We will begin at the logits and work backwards step-by-step. At each step, we identify components that directly influence the current component of interest using path patching. 
 
+Path patching replaces parot of a model's forward pass with activations from a different input. That is, given inputs $x_\text{origin}$ and $x_\text{new}$, and a set of paths $\mathcal{P}$ emanating from an attentation head $h$, path patching runs a forward pass on $x_\text{origin}$ but uses the pathes $\mathcal{P}$ from $x_\text{new}$. This allows us to isolate the effect of specific paths on the model's output.
 
+We will always have $x_\text{origin}$ be sampled from the IOI data set $\text{p}_\text{IoI}$, and $x_\text{new}$ to be the corresponding sample from the corrupted data set $\text{p}_\text{IoI-corrupt}$. We now run this on many different samples from $\text{p}_\text{IoI}$ and measure the average logit difference. **Critical; pathways can be identified by those with induce a significant effect on the logit difference when removed.** This is implemented as
 
+```python 
+clean_prompt = f"When{io_name} and{s_name} went to the store,{s_name} gave a drink to"
+corrupt_prompt = f"When{random_name1} and{random_name2} went to the store,{random_name3} gave a drink to"
+```
+
+### Path Patching Algorithm
+The inputs are
+- $x_\text{origin}$ the original data point
+- $x_\text{new}$ the new data point
+- $h$ the *sender* attention head, and
+- $R \subseteq M$ the set of *reciever* nodes in the model's computational graph $M$. In this case, $R$ is either the input (key, query, or values) of a set of attention heads or the end state of the residual stream.
+The algorthim can be summarized in five steps
+1. Gather activations on $x_\text{origin}$ and $x_\text{new}$  
+2. Freeze all the heads to their activations on $x_\text{origin}$ except $h$ that is patched to its activation on $x_\text{new}$.
+3. Run a forward pass of the model on $x_\text{origin}$ with the frozen and patched nodes (MLPs (feed-forward network) and layer norm are recomputed)
+4. In this forwad pass, save the activation of the model components $r \in R$ as if they were recomputed.
+5. Run a last forwad pass on $x_\text{origin}$ patching the reciever nodes in $R$ to the saved values.
 
 
 
@@ -121,6 +146,21 @@ Each experiment generates the following visualizations:
 - `resid_patching_heatmap.png` - Residual stream path patching effects
 
 
+### Using Pre-Generated IOI Pairs
+
+For more controlled experiments, you can generate clean/corrupt pairs in advance:
+
+```powershell
+# Generate datasets
+py .\data_generation_simple\generate_ioi_pairs.py
+```
+
+This creates pairs where:
+- **Clean**: Standard IOI with correct names: `"When Mary and John went to store, John gave book to [Mary]"`
+- **Corrupt**: Random names (not IO/S): `"When Linda and James went to store, James gave book to"`
+
+The corrupt version uses completely different names to test what happens when the model doesn't have the correct name information. See `data_generation_simple/README.md` for details.
+
 ## Project Structure
 
 ```
@@ -132,8 +172,13 @@ Each experiment generates the following visualizations:
 │   ├── gpu_cpu_comp.py            # GPU vs CPU benchmark
 │   └── example_with_output_dir.py # Custom output directory demo
 ├── data_generation/
-│   ├── generate_dataset.py         # Dataset generation scripts
+│   ├── generate_dataset.py         # Complex dataset generation
 │   └── input/                      # Templates and word lists
+├── data_generation_simple/
+│   ├── generate_ioi_pairs.py      # Simple IOI pair generation
+│   ├── load_pairs.py              # Utilities to load pairs
+│   ├── example_path_patching.py   # Example using generated pairs
+│   └── output/                    # Generated datasets
 ├── requirements.txt                # Python dependencies
 ├── setup_ioi_env.ps1              # Environment setup script
 └── .gitignore                     # Git ignore rules (includes ioi-env/)
