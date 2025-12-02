@@ -111,10 +111,72 @@ The results are summarized in the following figure:
 
 ![Path Patching Results](results/name_mover/100_examples/figure_3b_path_patching.png)
 
-Heads with significant positive effects are seen in red. These are the heads, that when the corrupt model uses the clean output, significantly increase the logit difference towards the correct indirect object token. These heads are likely important for solving the IOI task. These are the heads that correspond to the proposed Name Mover heads in the "Interpretability in the Wild" paper. 
+Heads with significant positive effects are seen in red. These are the heads, that when the corrupt model uses the clean output, significantly increase the logit difference towards the correct indirect object token. These heads are likely important for solving the IOI task. These are the heads that correspond to the proposed Name Mover heads in the "Interpretability in the Wild" paper. The heads are 
 
 Interestingly, there are also heads with significant negative effects (blue). These heads, when patched with the clean output, actually decrease the logit difference towards the correct indirect object token. These are the heads that correspond to the proposed Negative Name Mover heads in the "Interpretability in the Wild" paper.
 
+| Category | Head | Effect | Paper Reference |
+|----------|------|--------|-----------------|
+| **Name Mover Heads** (Positive) | L9H9 | +1.8130 | ✓ (9.9) |
+| | L10H0 | +0.7089 | ✓ (10.0) |
+| | L9H6 | +0.4613 | ✓ (9.6) |
+| | L10H10 | +0.3083 | |
+| | L10H6 | +0.3031 | |
+| **Negative Name Mover Heads** | L10H7 | -0.7048 | ✓ (10.7) |
+| | L11H10 | -0.4803 | ✓ (11.10) |
+| | L11H2 | -0.1958 | |
+| | L9H8 | -0.1876 | |
+| | L8H11 | -0.0953 | |
+
+The table shows the top heads identified through path patching. Name Mover heads (positive effects) help the model predict the correct indirect object, while Negative Name Mover heads (negative effects) work against this prediction. Heads marked with ✓ match those identified in the "Interpretability in the Wild" paper.
+
+#### Name Mover Heads Role Verification
+To determine what the Name Mover heads are attending to, we extract the state of the residual stream at the position of eahc name token after the first layer. We then directly multiply this by the OV matrix of a Name Mover Head (as if the head attended perfectly to that token), multiply by the unembedding matrix and get the logit probabilities. We now compute the proportion of samples that contrain the inupt name token in the top 5 logits and call this the copy score.
+
+| Rank | Head | Copy Score | Direct Effect | Notes |
+|------|------|------------|---------------|-------|
+| 1 | L8H11 | 100.0% | -0.0838 | High copy, negative effect |
+| 2 | L9H9 | 100.0% | +1.8055 | **Strong Name Mover** |
+| 3 | L7H2 | 100.0% | +0.0005 | High copy, minimal effect |
+| 4 | L10H2 | 100.0% | +0.0243 | High copy, small effect |
+| 5 | L7H10 | 99.0% | -0.0026 | High copy, minimal effect |
+| 6 | L6H9 | 96.7% | +0.0008 | High copy, minimal effect |
+| 7 | L11H1 | 95.5% | +0.1105 | High copy, small positive effect |
+| 8 | L11H2 | 88.1% | -0.1908 | Negative Name Mover candidate |
+| 9 | L8H1 | 85.7% | -0.0015 | High copy, minimal effect |
+| 10 | L10H0 | 82.5% | +0.6170 | **Name Mover Head** |
+
+
+or as summarized in the following heatmap:
+
+![Copy Score Heatmap](results/name_mover/1000_examples/copy_score_heatmap.png)
+
+While we do have a mean copy score of under 20 percent, we find our Name Mover Heads to have lower copy scores than found in the paper. But we still do observe a strong correlation between high copy scores and positive direct effects, confirming that these heads are indeed copying the indirect object token.
+
+### Negative Name Mover Heads Role Verification
+We perform a similar analysis for the Negative Name Mover heads, computing negative copy scores by measuring how often the head outputs the repeated subject token (S2) in its top 5 logits. 
+
+| Rank | Head | Negative Copy Score | Direct Effect | Notes |
+|------|------|---------------------|---------------|-------|
+| 1 | L10H7 | 100.0% | -0.7467 | **Strong Negative Name Mover** |
+| 2 | L11H10 | 100.0% | -0.4481 | **Strong Negative Name Mover** |
+| 3 | L8H10 | 38.7% | +0.2753 | High negative copy, positive effect |
+| 4 | L5H11 | 12.2% | -0.0157 | Moderate negative copy, minimal effect |
+| 5 | L9H5 | 7.0% | +0.0174 | Low negative copy, minimal effect |
+| 6 | L4H4 | 3.3% | -0.0333 | Low negative copy, small negative effect |
+| 7 | L7H3 | 1.9% | +0.1356 | Low negative copy, small positive effect |
+| 8 | L6H6 | 1.1% | -0.0046 | Low negative copy, minimal effect |
+| 9 | L9H4 | 0.0% | +0.0379 | No negative copying |
+| 10 | L0H7 | 0.0% | +0.0017 | No negative copying |
+
+
+![Negative Copy Score Heatmap](results/name_mover/1000_examples/negative_copy_score_heatmap.png)
+
+Here we see a strong correlation between high negative copy scores and negative direct effects, confirming that these heads are indeed copying the repeated subject token.
+
+## What Affects the Name Mover Heads' Attention?
+### Tracing back the flow
+There are three ways to influence an attention head: through its query, key, or value vectors.  
 
 
 ## Setup
