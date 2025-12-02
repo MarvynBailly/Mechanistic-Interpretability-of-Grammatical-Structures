@@ -76,7 +76,35 @@ To find the attention heads that play a significant role in the IOI task, we wil
 
 In short, we run the clean model and cache the output of head $h$ and all of its downstream computations. We then run the corrupt model, but replace head $h$'s output with the cached clean output. The difference in logit difference between the patched corrupt model and the original corrupt model tells us how much head $h$ contributes to the IOI task. For example, a useless head in the IOI task will have little to no effect when patching the corrupted model. Conversely, an important head will significantly increase the logit difference when patched with the clean output. 
 
+
 The discussion on the [implementation](path_patching_full/direct_effect_analysis.py) can be found in [name movers notes](path_patching_full/name_movers.md).
+
+```mermaid
+graph TD
+    subgraph "Path Patching (Direct Effect)"
+        direction TB
+        GoalA["Goal: Measure how much Head(L,H) directly affects final logits."]
+        noteA[Implements: path_patch_head_to_logits]
+       
+        subgraph "Step 1: Cache Clean"
+            C1[Run CLEAN Input] --> H1[Head L,H]
+            H1 --"Cache Output (z)"--> Z_Clean[Cached clean 'z' vector]
+        end
+       
+        subgraph "Step 2: Patch into Corrupt"
+            C2[Run CORRUPT Input] --> PreH2[Layers 0 to L-1]
+            PreH2 --> H2_Patch{Patch Point<br/>Head L,H}
+            Z_Clean --"Replace corrupted activation"--> H2_Patch
+            H2_Patch --> PostH2[Layers L+1 to End] --> Logits2[Final Logits]
+        end
+
+      Logits2 --> MeasureA{"Measure Logit Difference<br/>(IO token - S token)"}
+        MeasureA --"Compare vs Corrupt Baseline"--> ResultA[Direct Effect Score]
+       
+        GoalA --- noteA
+    end
+```
+
 
 The results are summarized in the following figure:
 
