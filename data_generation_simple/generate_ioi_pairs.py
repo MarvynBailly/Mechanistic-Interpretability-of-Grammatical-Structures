@@ -44,17 +44,20 @@ NAMES = [
     "Matthew", "Betty", "Anthony", "Margaret", "Mark", "Sandra",
 ]
 
-# Simple templates - using structure similar to existing data_generation
+# Templates tested for high accuracy (>90%) on GPT-2 small
+# Excluded templates that lead to ambiguous continuations (e.g., "The", "A")
 TEMPLATES = [
     "When {IO} and {S1} went to the store, {S2} gave the {object} to",
     "When {IO} and {S1} were at the park, {S2} handed the {object} to",
     "After {IO} and {S1} went to the library, {S2} showed the {object} to",
     "When {IO} and {S1} met at the cafe, {S2} gave the {object} to",
-    "While {IO} and {S1} were working, {S2} passed the {object} to",
-    "When {IO} and {S1} were talking, {S2} offered the {object} to",
-    "After {IO} and {S1} arrived home, {S2} handed the {object} to",
-    "When {IO} and {S1} were shopping, {S2} bought the {object} for",
 ]
+
+# Lower accuracy templates (commented out - can re-enable if needed):
+# "While {IO} and {S1} were working, {S2} passed the {object} to",  # Often predicts "The"
+# "When {IO} and {S1} were talking, {S2} offered the {object} to",  # Often predicts "The"
+# "After {IO} and {S1} arrived home, {S2} handed the {object} to",  # Often predicts "The"
+# "When {IO} and {S1} were shopping, {S2} bought the {object} for",  # "bought...for" is less clear
 
 # Simple objects
 OBJECTS = [
@@ -84,11 +87,12 @@ def generate_ioi_pair(template: str, obj: str) -> IOIPair:
     # Clean sentence
     clean_text = template.format(IO=io_name, S1=s_name, S2=s_name, object=obj)
     
-    # Sample different random names for corrupt
-    r1_name, r2_name, r3_name = sample_names(3, exclude=[io_name, s_name])
+    # Sample different random names for corrupt (use 2 names: R1 and R2)
+    # Important: S1 and S2 must be the same person (like in clean sentence)
+    r1_name, r2_name = sample_names(2, exclude=[io_name, s_name])
     
-    # Corrupt sentence with random names
-    corrupt_text = template.format(IO=r1_name, S1=r2_name, S2=r3_name, object=obj)
+    # Corrupt sentence with random names (R2 appears twice, like S in clean)
+    corrupt_text = template.format(IO=r1_name, S1=r2_name, S2=r2_name, object=obj)
     
     return IOIPair(
         clean_text=clean_text,

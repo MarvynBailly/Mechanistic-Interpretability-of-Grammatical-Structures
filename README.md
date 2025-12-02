@@ -32,7 +32,7 @@ The paper proposes that GPT-2 small implements a similar algorithm using attenti
 ![From the "Interpretability in the Wild" paper](results/README/gpt2-circuit.png)
 
 ## Data Set Generation
-We generated a data set $\text{p}_\text{IoI}$ of IOI sentences using the scripts in the `data_generation/` folder. Similarly, we will use $\text{p}_\text{IoI-corrupt}$, a corrupted version of the data set where all names are replaced with random names.
+We generated a data set $\text{p}_\text{IoI}$ of IOI sentences using the scripts in the `data_generation_simple/` folder. Similarly, we will use $\text{p}_\text{IoI-corrupt}$, a corrupted version of the data set where all names are replaced with random names. More information about the data set can be found ![here](data_generation_simple/README.md).
 
 
 ## Mechanistic Interpretability via Path Patching
@@ -52,11 +52,14 @@ corrupt_prompt = f"When{random_name1} and{random_name2} went to the store,{rando
 
 ### Path Patching Algorithm
 The inputs are
+
 - $x_\text{origin}$ the original data point
 - $x_\text{new}$ the new data point
 - $h$ the *sender* attention head, and
 - $R \subseteq M$ the set of *reciever* nodes in the model's computational graph $M$. In this case, $R$ is either the input (key, query, or values) of a set of attention heads or the end state of the residual stream.
+
 The algorthim can be summarized in five steps
+
 1. Gather activations on $x_\text{origin}$ and $x_\text{new}$  
 2. Freeze all the heads to their activations on $x_\text{origin}$ except $h$ that is patched to its activation on $x_\text{new}$.
 3. Run a forward pass of the model on $x_\text{origin}$ with the frozen and patched nodes (MLPs (feed-forward network) and layer norm are recomputed)
