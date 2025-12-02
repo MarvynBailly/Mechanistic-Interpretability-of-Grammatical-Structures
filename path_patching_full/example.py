@@ -41,7 +41,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Dataset settings
 DATASET_SIZE = "large"  # "small", "medium", or "large"
-N_EXAMPLES = 200
+N_EXAMPLES = 500
 SEED = 42
 
 # Path patching settings
@@ -308,6 +308,97 @@ def example_receiver_components(model, clean_tokens, corrupt_tokens, io_toks, s_
 
 
 # ============================================================================
+# Example 4: Direct Effect Analysis
+# ============================================================================
+
+def example_direct_effects(model, clean_tokens, io_toks, s_toks):
+    """
+    Measure the direct effect of each attention head (similar to Figure 3b).
+    
+    Direct effect = how much does logit_diff decrease when we ablate this head?
+    """
+    print("\n" + "="*70)
+    print("EXAMPLE 4: Direct Effect Analysis (Figure 3b)")
+    print("="*70)
+    
+    print("\nMeasuring: logit_diff(normal) - logit_diff(head ablated)")
+    print("Positive values = head helps predict IO")
+    print("Negative values = head works against IOI")
+    
+    n_layers = model.cfg.n_layers
+    n_heads = model.cfg.n_heads
+    device = model.cfg.device
+    
+    # Compute baseline
+    with torch.inference_mode():
+        baseline_logits = model(clean_tokens)[:, -1, :]
+        batch_idx = torch.arange(len(io_toks), device=device)
+        baseline_io = baseline_logits[batch_idx, io_toks]
+        baseline_s = baseline_logits[batch_idx, s_toks]
+        baseline_diff = (baseline_io - baseline_s).mean().item()
+    
+    print(f"\nBaseline logit_diff: {baseline_diff:.3f}")
+    
+    # Compute direct effects for all heads
+    effects = torch.zeros(n_layers, n_heads)
+    
+    print(f"\nComputing direct effects for {n_layers} layers × {n_heads} heads...")
+    for layer in range(n_layers):
+        print(f"  Layer {layer}...", end=" ", flush=True)
+        
+        for head in range(n_heads):
+            # Ablate this head
+            def ablate_head_hook(activation, hook):
+                activation[:, :, head, :] = 0.0
+                return activation
+            
+            hook_name = f"blocks.{layer}.attn.hook_z"
+            
+            with torch.inference_mode():
+                ablated_logits = model.run_with_hooks(
+                    clean_tokens,
+                    fwd_hooks=[(hook_name, ablate_head_hook)]
+                )[:, -1, :]
+                
+                ablated_io = ablated_logits[batch_idx, io_toks]
+                ablated_s = ablated_logits[batch_idx, s_toks]
+                ablated_diff = (ablated_io - ablated_s).mean().item()
+            
+            # Direct effect = loss from ablation
+            effects[layer, head] = baseline_diff - ablated_diff
+        
+        print("✓")
+    
+    # Print top heads
+    flat_effects = effects.flatten()
+    flat_indices = flat_effects.argsort(descending=True)
+    
+    print(f"\nTop 5 most important heads:")
+    for i in range(5):
+        idx = flat_indices[i].item()
+        layer = idx // n_heads
+        head = idx % n_heads
+        effect = flat_effects[idx].item()
+        print(f"  {i+1}. L{layer}H{head}: {effect:.4f}")
+    
+    # Save heatmap
+    from plotting import save_heatmap
+    save_heatmap(
+        data=effects,
+        title="Direct Effect of Attention Heads on IOI\n(Positive = helps predict IO)",
+        filename="direct_effect_heatmap.png",
+        output_dir=OUTPUT_DIR,
+        xlabel="Head",
+        ylabel="Layer",
+        colorbar_label="Direct Effect (Δ logit_diff)",
+        cmap="RdBu_r",
+        figsize=(12, 8),
+    )
+    
+    print(f"\nSaved heatmap to: {OUTPUT_DIR}/direct_effect_heatmap.png")
+
+
+# ============================================================================
 # Main
 # ============================================================================
 
@@ -330,9 +421,12 @@ def main():
     )
     
     # Run examples
-    example_single_path(model, clean_tokens, corrupt_tokens, io_toks, s_toks)
+    # example_single_path(model, clean_tokens, corrupt_tokens, io_toks, s_toks)
     # example_batch_paths(model, clean_tokens, corrupt_tokens, io_toks, s_toks)
     # example_receiver_components(model, clean_tokens, corrupt_tokens, io_toks, s_toks)
+    
+    example_direct_effects(model, clean_tokens, io_toks, s_toks)
+    
     
     print("\n" + "="*70)
     print("DONE!")
