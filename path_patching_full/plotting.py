@@ -54,7 +54,7 @@ def save_heatmap(
     data_cpu = data.detach().cpu().numpy()
     
     plt.figure(figsize=figsize)
-    im = plt.imshow(data_cpu, aspect="auto", cmap=cmap)
+    im = plt.imshow(data_cpu, aspect="auto", cmap=cmap, vmin=-.6, vmax=.6)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
