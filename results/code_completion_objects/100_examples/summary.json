@@ -1,0 +1,11 @@
+{
+  "var_type": "objects",
+  "n_examples": 100,
+  "clean_logit_diff": 2.413195848464966,
+  "corrupt_logit_diff": -4.568023204803467,
+  "corruption_effect": 6.981219053268433,
+  "clean_accuracy": 0.9399999976158142,
+  "corrupt_accuracy": 0.0,
+  "mean_effect": 0.09857548028230667,
+  "max_effect": 2.8099701404571533
+}

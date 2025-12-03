@@ -1,0 +1,802 @@
+[
+  {
+    "clean": "def merge(w, d):\n    return w +",
+    "corrupt": "def merge(a, j):\n    return w +",
+    "correct_arg": "d",
+    "incorrect_arg": "w",
+    "var1_clean": "w",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def combine(e, z):\n    return e *",
+    "corrupt": "def combine(d, y):\n    return e *",
+    "correct_arg": "z",
+    "incorrect_arg": "e",
+    "var1_clean": "e",
+    "var2_clean": "z"
+  },
+  {
+    "clean": "def merge(b, a):\n    return b +",
+    "corrupt": "def merge(e, i):\n    return b +",
+    "correct_arg": "a",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "a"
+  },
+  {
+    "clean": "def calc(t, g):\n    return t +",
+    "corrupt": "def calc(y, v):\n    return t +",
+    "correct_arg": "g",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "g"
+  },
+  {
+    "clean": "def add(q, u):\n    return q *",
+    "corrupt": "def add(i, a):\n    return q *",
+    "correct_arg": "u",
+    "incorrect_arg": "q",
+    "var1_clean": "q",
+    "var2_clean": "u"
+  },
+  {
+    "clean": "def join(k, i):\n    return k +",
+    "corrupt": "def join(e, g):\n    return k +",
+    "correct_arg": "i",
+    "incorrect_arg": "k",
+    "var1_clean": "k",
+    "var2_clean": "i"
+  },
+  {
+    "clean": "def join(c, n):\n    return c *",
+    "corrupt": "def join(e, p):\n    return c *",
+    "correct_arg": "n",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "n"
+  },
+  {
+    "clean": "def combine(b, z):\n    return b *",
+    "corrupt": "def combine(r, u):\n    return b *",
+    "correct_arg": "z",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "z"
+  },
+  {
+    "clean": "def join(c, t):\n    return c +",
+    "corrupt": "def join(k, y):\n    return c +",
+    "correct_arg": "t",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def merge(y, c):\n    return y *",
+    "corrupt": "def merge(b, z):\n    return y *",
+    "correct_arg": "c",
+    "incorrect_arg": "y",
+    "var1_clean": "y",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def mix(c, h):\n    return c *",
+    "corrupt": "def mix(e, q):\n    return c *",
+    "correct_arg": "h",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def join(w, m):\n    return w +",
+    "corrupt": "def join(f, n):\n    return w +",
+    "correct_arg": "m",
+    "incorrect_arg": "w",
+    "var1_clean": "w",
+    "var2_clean": "m"
+  },
+  {
+    "clean": "def combine(x, i):\n    return x +",
+    "corrupt": "def combine(z, y):\n    return x +",
+    "correct_arg": "i",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "i"
+  },
+  {
+    "clean": "def compute(t, z):\n    return t *",
+    "corrupt": "def compute(h, f):\n    return t *",
+    "correct_arg": "z",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "z"
+  },
+  {
+    "clean": "def join(i, w):\n    return i +",
+    "corrupt": "def join(u, h):\n    return i +",
+    "correct_arg": "w",
+    "incorrect_arg": "i",
+    "var1_clean": "i",
+    "var2_clean": "w"
+  },
+  {
+    "clean": "def mix(h, b):\n    return h +",
+    "corrupt": "def mix(n, q):\n    return h +",
+    "correct_arg": "b",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "b"
+  },
+  {
+    "clean": "def compute(g, u):\n    return g *",
+    "corrupt": "def compute(m, h):\n    return g *",
+    "correct_arg": "u",
+    "incorrect_arg": "g",
+    "var1_clean": "g",
+    "var2_clean": "u"
+  },
+  {
+    "clean": "def add(w, q):\n    return w +",
+    "corrupt": "def add(e, i):\n    return w +",
+    "correct_arg": "q",
+    "incorrect_arg": "w",
+    "var1_clean": "w",
+    "var2_clean": "q"
+  },
+  {
+    "clean": "def calc(z, t):\n    return z *",
+    "corrupt": "def calc(u, i):\n    return z *",
+    "correct_arg": "t",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def compute(m, h):\n    return m +",
+    "corrupt": "def compute(e, u):\n    return m +",
+    "correct_arg": "h",
+    "incorrect_arg": "m",
+    "var1_clean": "m",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def add(b, d):\n    return b *",
+    "corrupt": "def add(g, y):\n    return b *",
+    "correct_arg": "d",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def compute(v, c):\n    return v *",
+    "corrupt": "def compute(p, x):\n    return v *",
+    "correct_arg": "c",
+    "incorrect_arg": "v",
+    "var1_clean": "v",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def mix(t, a):\n    return t *",
+    "corrupt": "def mix(z, e):\n    return t *",
+    "correct_arg": "a",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "a"
+  },
+  {
+    "clean": "def compute(d, j):\n    return d +",
+    "corrupt": "def compute(r, g):\n    return d +",
+    "correct_arg": "j",
+    "incorrect_arg": "d",
+    "var1_clean": "d",
+    "var2_clean": "j"
+  },
+  {
+    "clean": "def combine(z, i):\n    return z *",
+    "corrupt": "def combine(t, f):\n    return z *",
+    "correct_arg": "i",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "i"
+  },
+  {
+    "clean": "def add(w, s):\n    return w *",
+    "corrupt": "def add(x, g):\n    return w *",
+    "correct_arg": "s",
+    "incorrect_arg": "w",
+    "var1_clean": "w",
+    "var2_clean": "s"
+  },
+  {
+    "clean": "def join(f, t):\n    return f *",
+    "corrupt": "def join(u, a):\n    return f *",
+    "correct_arg": "t",
+    "incorrect_arg": "f",
+    "var1_clean": "f",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def merge(a, d):\n    return a +",
+    "corrupt": "def merge(p, m):\n    return a +",
+    "correct_arg": "d",
+    "incorrect_arg": "a",
+    "var1_clean": "a",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def combine(h, u):\n    return h +",
+    "corrupt": "def combine(c, s):\n    return h +",
+    "correct_arg": "u",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "u"
+  },
+  {
+    "clean": "def add(e, x):\n    return e *",
+    "corrupt": "def add(s, u):\n    return e *",
+    "correct_arg": "x",
+    "incorrect_arg": "e",
+    "var1_clean": "e",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def merge(s, v):\n    return s *",
+    "corrupt": "def merge(p, g):\n    return s *",
+    "correct_arg": "v",
+    "incorrect_arg": "s",
+    "var1_clean": "s",
+    "var2_clean": "v"
+  },
+  {
+    "clean": "def compute(n, x):\n    return n *",
+    "corrupt": "def compute(y, m):\n    return n *",
+    "correct_arg": "x",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def join(d, h):\n    return d +",
+    "corrupt": "def join(j, c):\n    return d +",
+    "correct_arg": "h",
+    "incorrect_arg": "d",
+    "var1_clean": "d",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def merge(u, t):\n    return u +",
+    "corrupt": "def merge(h, w):\n    return u +",
+    "correct_arg": "t",
+    "incorrect_arg": "u",
+    "var1_clean": "u",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def merge(c, y):\n    return c +",
+    "corrupt": "def merge(x, b):\n    return c +",
+    "correct_arg": "y",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def merge(b, k):\n    return b *",
+    "corrupt": "def merge(d, u):\n    return b *",
+    "correct_arg": "k",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "k"
+  },
+  {
+    "clean": "def add(x, r):\n    return x *",
+    "corrupt": "def add(g, u):\n    return x *",
+    "correct_arg": "r",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "r"
+  },
+  {
+    "clean": "def combine(h, r):\n    return h +",
+    "corrupt": "def combine(q, g):\n    return h +",
+    "correct_arg": "r",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "r"
+  },
+  {
+    "clean": "def calc(x, p):\n    return x *",
+    "corrupt": "def calc(m, q):\n    return x *",
+    "correct_arg": "p",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "p"
+  },
+  {
+    "clean": "def combine(z, b):\n    return z +",
+    "corrupt": "def combine(y, x):\n    return z +",
+    "correct_arg": "b",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "b"
+  },
+  {
+    "clean": "def merge(n, z):\n    return n +",
+    "corrupt": "def merge(k, d):\n    return n +",
+    "correct_arg": "z",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "z"
+  },
+  {
+    "clean": "def calc(g, t):\n    return g +",
+    "corrupt": "def calc(r, e):\n    return g +",
+    "correct_arg": "t",
+    "incorrect_arg": "g",
+    "var1_clean": "g",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def compute(i, q):\n    return i +",
+    "corrupt": "def compute(h, c):\n    return i +",
+    "correct_arg": "q",
+    "incorrect_arg": "i",
+    "var1_clean": "i",
+    "var2_clean": "q"
+  },
+  {
+    "clean": "def combine(b, w):\n    return b +",
+    "corrupt": "def combine(u, a):\n    return b +",
+    "correct_arg": "w",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "w"
+  },
+  {
+    "clean": "def calc(f, p):\n    return f +",
+    "corrupt": "def calc(t, h):\n    return f +",
+    "correct_arg": "p",
+    "incorrect_arg": "f",
+    "var1_clean": "f",
+    "var2_clean": "p"
+  },
+  {
+    "clean": "def mix(f, n):\n    return f *",
+    "corrupt": "def mix(a, q):\n    return f *",
+    "correct_arg": "n",
+    "incorrect_arg": "f",
+    "var1_clean": "f",
+    "var2_clean": "n"
+  },
+  {
+    "clean": "def compute(j, p):\n    return j +",
+    "corrupt": "def compute(v, z):\n    return j +",
+    "correct_arg": "p",
+    "incorrect_arg": "j",
+    "var1_clean": "j",
+    "var2_clean": "p"
+  },
+  {
+    "clean": "def process(g, j):\n    return g *",
+    "corrupt": "def process(h, b):\n    return g *",
+    "correct_arg": "j",
+    "incorrect_arg": "g",
+    "var1_clean": "g",
+    "var2_clean": "j"
+  },
+  {
+    "clean": "def add(b, u):\n    return b +",
+    "corrupt": "def add(s, t):\n    return b +",
+    "correct_arg": "u",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "u"
+  },
+  {
+    "clean": "def combine(s, c):\n    return s +",
+    "corrupt": "def combine(g, d):\n    return s +",
+    "correct_arg": "c",
+    "incorrect_arg": "s",
+    "var1_clean": "s",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def process(n, d):\n    return n +",
+    "corrupt": "def process(w, i):\n    return n +",
+    "correct_arg": "d",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def join(p, x):\n    return p *",
+    "corrupt": "def join(v, t):\n    return p *",
+    "correct_arg": "x",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def mix(g, x):\n    return g *",
+    "corrupt": "def mix(m, i):\n    return g *",
+    "correct_arg": "x",
+    "incorrect_arg": "g",
+    "var1_clean": "g",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def compute(e, x):\n    return e *",
+    "corrupt": "def compute(y, k):\n    return e *",
+    "correct_arg": "x",
+    "incorrect_arg": "e",
+    "var1_clean": "e",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def combine(c, a):\n    return c +",
+    "corrupt": "def combine(s, x):\n    return c +",
+    "correct_arg": "a",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "a"
+  },
+  {
+    "clean": "def add(t, g):\n    return t *",
+    "corrupt": "def add(u, j):\n    return t *",
+    "correct_arg": "g",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "g"
+  },
+  {
+    "clean": "def add(c, h):\n    return c *",
+    "corrupt": "def add(p, m):\n    return c *",
+    "correct_arg": "h",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def process(t, y):\n    return t *",
+    "corrupt": "def process(j, w):\n    return t *",
+    "correct_arg": "y",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def combine(x, d):\n    return x +",
+    "corrupt": "def combine(f, j):\n    return x +",
+    "correct_arg": "d",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def mix(z, t):\n    return z +",
+    "corrupt": "def mix(e, i):\n    return z +",
+    "correct_arg": "t",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def mix(y, k):\n    return y *",
+    "corrupt": "def mix(g, z):\n    return y *",
+    "correct_arg": "k",
+    "incorrect_arg": "y",
+    "var1_clean": "y",
+    "var2_clean": "k"
+  },
+  {
+    "clean": "def calc(i, b):\n    return i *",
+    "corrupt": "def calc(d, y):\n    return i *",
+    "correct_arg": "b",
+    "incorrect_arg": "i",
+    "var1_clean": "i",
+    "var2_clean": "b"
+  },
+  {
+    "clean": "def mix(b, a):\n    return b +",
+    "corrupt": "def mix(n, g):\n    return b +",
+    "correct_arg": "a",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "a"
+  },
+  {
+    "clean": "def process(z, q):\n    return z +",
+    "corrupt": "def process(u, p):\n    return z +",
+    "correct_arg": "q",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "q"
+  },
+  {
+    "clean": "def process(c, y):\n    return c *",
+    "corrupt": "def process(f, u):\n    return c *",
+    "correct_arg": "y",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def add(u, t):\n    return u +",
+    "corrupt": "def add(e, p):\n    return u +",
+    "correct_arg": "t",
+    "incorrect_arg": "u",
+    "var1_clean": "u",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def merge(j, m):\n    return j +",
+    "corrupt": "def merge(b, p):\n    return j +",
+    "correct_arg": "m",
+    "incorrect_arg": "j",
+    "var1_clean": "j",
+    "var2_clean": "m"
+  },
+  {
+    "clean": "def calc(x, d):\n    return x +",
+    "corrupt": "def calc(n, u):\n    return x +",
+    "correct_arg": "d",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def process(h, f):\n    return h +",
+    "corrupt": "def process(g, r):\n    return h +",
+    "correct_arg": "f",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "f"
+  },
+  {
+    "clean": "def merge(z, k):\n    return z *",
+    "corrupt": "def merge(q, y):\n    return z *",
+    "correct_arg": "k",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "k"
+  },
+  {
+    "clean": "def process(f, y):\n    return f *",
+    "corrupt": "def process(d, p):\n    return f *",
+    "correct_arg": "y",
+    "incorrect_arg": "f",
+    "var1_clean": "f",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def mix(h, g):\n    return h +",
+    "corrupt": "def mix(s, p):\n    return h +",
+    "correct_arg": "g",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "g"
+  },
+  {
+    "clean": "def calc(h, a):\n    return h *",
+    "corrupt": "def calc(z, i):\n    return h *",
+    "correct_arg": "a",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "a"
+  },
+  {
+    "clean": "def calc(i, c):\n    return i *",
+    "corrupt": "def calc(k, p):\n    return i *",
+    "correct_arg": "c",
+    "incorrect_arg": "i",
+    "var1_clean": "i",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def mix(a, d):\n    return a +",
+    "corrupt": "def mix(k, h):\n    return a +",
+    "correct_arg": "d",
+    "incorrect_arg": "a",
+    "var1_clean": "a",
+    "var2_clean": "d"
+  },
+  {
+    "clean": "def join(d, v):\n    return d *",
+    "corrupt": "def join(q, n):\n    return d *",
+    "correct_arg": "v",
+    "incorrect_arg": "d",
+    "var1_clean": "d",
+    "var2_clean": "v"
+  },
+  {
+    "clean": "def merge(v, s):\n    return v *",
+    "corrupt": "def merge(d, n):\n    return v *",
+    "correct_arg": "s",
+    "incorrect_arg": "v",
+    "var1_clean": "v",
+    "var2_clean": "s"
+  },
+  {
+    "clean": "def merge(b, y):\n    return b *",
+    "corrupt": "def merge(q, a):\n    return b *",
+    "correct_arg": "y",
+    "incorrect_arg": "b",
+    "var1_clean": "b",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def join(p, c):\n    return p +",
+    "corrupt": "def join(z, m):\n    return p +",
+    "correct_arg": "c",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def calc(z, j):\n    return z *",
+    "corrupt": "def calc(t, k):\n    return z *",
+    "correct_arg": "j",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "j"
+  },
+  {
+    "clean": "def add(n, y):\n    return n +",
+    "corrupt": "def add(j, u):\n    return n +",
+    "correct_arg": "y",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def add(p, x):\n    return p *",
+    "corrupt": "def add(n, z):\n    return p *",
+    "correct_arg": "x",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def mix(n, t):\n    return n +",
+    "corrupt": "def mix(a, j):\n    return n +",
+    "correct_arg": "t",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def join(p, u):\n    return p *",
+    "corrupt": "def join(x, y):\n    return p *",
+    "correct_arg": "u",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "u"
+  },
+  {
+    "clean": "def compute(q, x):\n    return q +",
+    "corrupt": "def compute(g, t):\n    return q +",
+    "correct_arg": "x",
+    "incorrect_arg": "q",
+    "var1_clean": "q",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def join(x, c):\n    return x +",
+    "corrupt": "def join(k, t):\n    return x +",
+    "correct_arg": "c",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "c"
+  },
+  {
+    "clean": "def merge(h, x):\n    return h +",
+    "corrupt": "def merge(k, i):\n    return h +",
+    "correct_arg": "x",
+    "incorrect_arg": "h",
+    "var1_clean": "h",
+    "var2_clean": "x"
+  },
+  {
+    "clean": "def combine(a, b):\n    return a *",
+    "corrupt": "def combine(j, t):\n    return a *",
+    "correct_arg": "b",
+    "incorrect_arg": "a",
+    "var1_clean": "a",
+    "var2_clean": "b"
+  },
+  {
+    "clean": "def calc(p, w):\n    return p *",
+    "corrupt": "def calc(v, g):\n    return p *",
+    "correct_arg": "w",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "w"
+  },
+  {
+    "clean": "def process(n, h):\n    return n +",
+    "corrupt": "def process(e, y):\n    return n +",
+    "correct_arg": "h",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def compute(p, h):\n    return p +",
+    "corrupt": "def compute(f, u):\n    return p +",
+    "correct_arg": "h",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def add(t, h):\n    return t *",
+    "corrupt": "def add(d, r):\n    return t *",
+    "correct_arg": "h",
+    "incorrect_arg": "t",
+    "var1_clean": "t",
+    "var2_clean": "h"
+  },
+  {
+    "clean": "def join(x, s):\n    return x *",
+    "corrupt": "def join(u, w):\n    return x *",
+    "correct_arg": "s",
+    "incorrect_arg": "x",
+    "var1_clean": "x",
+    "var2_clean": "s"
+  },
+  {
+    "clean": "def compute(v, z):\n    return v +",
+    "corrupt": "def compute(s, p):\n    return v +",
+    "correct_arg": "z",
+    "incorrect_arg": "v",
+    "var1_clean": "v",
+    "var2_clean": "z"
+  },
+  {
+    "clean": "def merge(z, r):\n    return z *",
+    "corrupt": "def merge(q, i):\n    return z *",
+    "correct_arg": "r",
+    "incorrect_arg": "z",
+    "var1_clean": "z",
+    "var2_clean": "r"
+  },
+  {
+    "clean": "def mix(s, r):\n    return s *",
+    "corrupt": "def mix(y, h):\n    return s *",
+    "correct_arg": "r",
+    "incorrect_arg": "s",
+    "var1_clean": "s",
+    "var2_clean": "r"
+  },
+  {
+    "clean": "def mix(c, y):\n    return c *",
+    "corrupt": "def mix(k, i):\n    return c *",
+    "correct_arg": "y",
+    "incorrect_arg": "c",
+    "var1_clean": "c",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def add(k, t):\n    return k +",
+    "corrupt": "def add(c, e):\n    return k +",
+    "correct_arg": "t",
+    "incorrect_arg": "k",
+    "var1_clean": "k",
+    "var2_clean": "t"
+  },
+  {
+    "clean": "def combine(n, y):\n    return n *",
+    "corrupt": "def combine(e, g):\n    return n *",
+    "correct_arg": "y",
+    "incorrect_arg": "n",
+    "var1_clean": "n",
+    "var2_clean": "y"
+  },
+  {
+    "clean": "def calc(p, k):\n    return p +",
+    "corrupt": "def calc(v, s):\n    return p +",
+    "correct_arg": "k",
+    "incorrect_arg": "p",
+    "var1_clean": "p",
+    "var2_clean": "k"
+  }
+]

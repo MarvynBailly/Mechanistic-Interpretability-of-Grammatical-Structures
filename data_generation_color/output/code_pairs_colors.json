@@ -1,0 +1,802 @@
+[
+  {
+    "clean": "def merge(blue, red):\n    return blue +",
+    "corrupt": "def merge(white, orange):\n    return blue +",
+    "correct_arg": "red",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def combine(green, blue):\n    return green *",
+    "corrupt": "def combine(white, black):\n    return green *",
+    "correct_arg": "blue",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def merge(red, black):\n    return red +",
+    "corrupt": "def merge(blue, green):\n    return red +",
+    "correct_arg": "black",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def calc(black, yellow):\n    return black +",
+    "corrupt": "def calc(pink, white):\n    return black +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def add(white, orange):\n    return white *",
+    "corrupt": "def add(black, red):\n    return white *",
+    "correct_arg": "orange",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def join(purple, orange):\n    return purple +",
+    "corrupt": "def join(blue, black):\n    return purple +",
+    "correct_arg": "orange",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def join(blue, pink):\n    return blue *",
+    "corrupt": "def join(red, yellow):\n    return blue *",
+    "correct_arg": "pink",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def calc(red, white):\n    return red +",
+    "corrupt": "def calc(purple, blue):\n    return red +",
+    "correct_arg": "white",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def join(black, orange):\n    return black +",
+    "corrupt": "def join(white, pink):\n    return black +",
+    "correct_arg": "orange",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def mix(blue, red):\n    return blue +",
+    "corrupt": "def mix(white, yellow):\n    return blue +",
+    "correct_arg": "red",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def compute(yellow, blue):\n    return yellow *",
+    "corrupt": "def compute(purple, orange):\n    return yellow *",
+    "correct_arg": "blue",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def mix(green, purple):\n    return green +",
+    "corrupt": "def mix(yellow, blue):\n    return green +",
+    "correct_arg": "purple",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def calc(green, yellow):\n    return green *",
+    "corrupt": "def calc(blue, purple):\n    return green *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def process(black, yellow):\n    return black +",
+    "corrupt": "def process(pink, green):\n    return black +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def combine(red, purple):\n    return red +",
+    "corrupt": "def combine(orange, yellow):\n    return red +",
+    "correct_arg": "purple",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def calc(purple, yellow):\n    return purple *",
+    "corrupt": "def calc(white, orange):\n    return purple *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def mix(green, orange):\n    return green *",
+    "corrupt": "def mix(blue, black):\n    return green *",
+    "correct_arg": "orange",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def compute(pink, purple):\n    return pink +",
+    "corrupt": "def compute(blue, black):\n    return pink +",
+    "correct_arg": "purple",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def add(red, blue):\n    return red *",
+    "corrupt": "def add(yellow, white):\n    return red *",
+    "correct_arg": "blue",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def compute(blue, pink):\n    return blue *",
+    "corrupt": "def compute(orange, purple):\n    return blue *",
+    "correct_arg": "pink",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def combine(black, red):\n    return black *",
+    "corrupt": "def combine(pink, white):\n    return black *",
+    "correct_arg": "red",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def add(purple, blue):\n    return purple *",
+    "corrupt": "def add(yellow, orange):\n    return purple *",
+    "correct_arg": "blue",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def combine(red, orange):\n    return red *",
+    "corrupt": "def combine(pink, green):\n    return red *",
+    "correct_arg": "orange",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def add(black, yellow):\n    return black +",
+    "corrupt": "def add(blue, green):\n    return black +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def join(purple, white):\n    return purple *",
+    "corrupt": "def join(red, black):\n    return purple *",
+    "correct_arg": "white",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def combine(yellow, red):\n    return yellow +",
+    "corrupt": "def combine(green, pink):\n    return yellow +",
+    "correct_arg": "red",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def add(white, blue):\n    return white +",
+    "corrupt": "def add(black, purple):\n    return white +",
+    "correct_arg": "blue",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def calc(white, green):\n    return white +",
+    "corrupt": "def calc(yellow, purple):\n    return white +",
+    "correct_arg": "green",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def calc(black, yellow):\n    return black *",
+    "corrupt": "def calc(pink, green):\n    return black *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def merge(white, black):\n    return white +",
+    "corrupt": "def merge(red, blue):\n    return white +",
+    "correct_arg": "black",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def merge(purple, red):\n    return purple +",
+    "corrupt": "def merge(pink, black):\n    return purple +",
+    "correct_arg": "red",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def process(red, blue):\n    return red +",
+    "corrupt": "def process(white, black):\n    return red +",
+    "correct_arg": "blue",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def combine(blue, red):\n    return blue +",
+    "corrupt": "def combine(black, orange):\n    return blue +",
+    "correct_arg": "red",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def add(orange, white):\n    return orange *",
+    "corrupt": "def add(blue, purple):\n    return orange *",
+    "correct_arg": "white",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def merge(yellow, white):\n    return yellow +",
+    "corrupt": "def merge(black, orange):\n    return yellow +",
+    "correct_arg": "white",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def calc(blue, pink):\n    return blue *",
+    "corrupt": "def calc(yellow, orange):\n    return blue *",
+    "correct_arg": "pink",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def join(red, blue):\n    return red +",
+    "corrupt": "def join(green, purple):\n    return red +",
+    "correct_arg": "blue",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def compute(yellow, black):\n    return yellow +",
+    "corrupt": "def compute(blue, purple):\n    return yellow +",
+    "correct_arg": "black",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def merge(pink, green):\n    return pink +",
+    "corrupt": "def merge(yellow, orange):\n    return pink +",
+    "correct_arg": "green",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def process(white, blue):\n    return white +",
+    "corrupt": "def process(red, pink):\n    return white +",
+    "correct_arg": "blue",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def compute(yellow, green):\n    return yellow +",
+    "corrupt": "def compute(purple, black):\n    return yellow +",
+    "correct_arg": "green",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def process(pink, red):\n    return pink *",
+    "corrupt": "def process(green, orange):\n    return pink *",
+    "correct_arg": "red",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def compute(orange, white):\n    return orange +",
+    "corrupt": "def compute(green, yellow):\n    return orange +",
+    "correct_arg": "white",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def process(yellow, orange):\n    return yellow *",
+    "corrupt": "def process(blue, red):\n    return yellow *",
+    "correct_arg": "orange",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def add(red, black):\n    return red +",
+    "corrupt": "def add(purple, orange):\n    return red +",
+    "correct_arg": "black",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def combine(black, blue):\n    return black +",
+    "corrupt": "def combine(white, green):\n    return black +",
+    "correct_arg": "blue",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def merge(yellow, pink):\n    return yellow +",
+    "corrupt": "def merge(red, purple):\n    return yellow +",
+    "correct_arg": "pink",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def join(blue, pink):\n    return blue *",
+    "corrupt": "def join(white, purple):\n    return blue *",
+    "correct_arg": "pink",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def calc(yellow, purple):\n    return yellow +",
+    "corrupt": "def calc(blue, green):\n    return yellow +",
+    "correct_arg": "purple",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def process(orange, white):\n    return orange *",
+    "corrupt": "def process(green, red):\n    return orange *",
+    "correct_arg": "white",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def mix(blue, black):\n    return blue +",
+    "corrupt": "def mix(purple, green):\n    return blue +",
+    "correct_arg": "black",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def mix(purple, blue):\n    return purple +",
+    "corrupt": "def mix(green, yellow):\n    return purple +",
+    "correct_arg": "blue",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def process(white, orange):\n    return white *",
+    "corrupt": "def process(purple, pink):\n    return white *",
+    "correct_arg": "orange",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def combine(blue, green):\n    return blue +",
+    "corrupt": "def combine(orange, red):\n    return blue +",
+    "correct_arg": "green",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def join(orange, black):\n    return orange +",
+    "corrupt": "def join(purple, blue):\n    return orange +",
+    "correct_arg": "black",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def combine(orange, white):\n    return orange *",
+    "corrupt": "def combine(green, red):\n    return orange *",
+    "correct_arg": "white",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def add(orange, red):\n    return orange *",
+    "corrupt": "def add(blue, yellow):\n    return orange *",
+    "correct_arg": "red",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def calc(green, white):\n    return green +",
+    "corrupt": "def calc(purple, pink):\n    return green +",
+    "correct_arg": "white",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def process(blue, black):\n    return blue *",
+    "corrupt": "def process(pink, green):\n    return blue *",
+    "correct_arg": "black",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def process(black, green):\n    return black *",
+    "corrupt": "def process(orange, blue):\n    return black *",
+    "correct_arg": "green",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def merge(purple, red):\n    return purple +",
+    "corrupt": "def merge(yellow, green):\n    return purple +",
+    "correct_arg": "red",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def add(purple, pink):\n    return purple +",
+    "corrupt": "def add(orange, white):\n    return purple +",
+    "correct_arg": "pink",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def add(green, black):\n    return green *",
+    "corrupt": "def add(orange, red):\n    return green *",
+    "correct_arg": "black",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def combine(pink, yellow):\n    return pink *",
+    "corrupt": "def combine(green, blue):\n    return pink *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def compute(red, white):\n    return red *",
+    "corrupt": "def compute(green, black):\n    return red *",
+    "correct_arg": "white",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def merge(orange, yellow):\n    return orange *",
+    "corrupt": "def merge(blue, red):\n    return orange *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def mix(purple, orange):\n    return purple *",
+    "corrupt": "def mix(black, red):\n    return purple *",
+    "correct_arg": "orange",
+    "incorrect_arg": "purple",
+    "var1_clean": "purple",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def join(black, pink):\n    return black +",
+    "corrupt": "def join(purple, orange):\n    return black +",
+    "correct_arg": "pink",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def mix(blue, orange):\n    return blue +",
+    "corrupt": "def mix(green, pink):\n    return blue +",
+    "correct_arg": "orange",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def join(blue, pink):\n    return blue *",
+    "corrupt": "def join(yellow, white):\n    return blue *",
+    "correct_arg": "pink",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def merge(black, blue):\n    return black *",
+    "corrupt": "def merge(orange, purple):\n    return black *",
+    "correct_arg": "blue",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def merge(red, pink):\n    return red *",
+    "corrupt": "def merge(blue, purple):\n    return red *",
+    "correct_arg": "pink",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def join(pink, blue):\n    return pink +",
+    "corrupt": "def join(white, yellow):\n    return pink +",
+    "correct_arg": "blue",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def join(orange, black):\n    return orange *",
+    "corrupt": "def join(pink, yellow):\n    return orange *",
+    "correct_arg": "black",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def calc(orange, green):\n    return orange +",
+    "corrupt": "def calc(blue, purple):\n    return orange +",
+    "correct_arg": "green",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def mix(orange, pink):\n    return orange *",
+    "corrupt": "def mix(purple, red):\n    return orange *",
+    "correct_arg": "pink",
+    "incorrect_arg": "orange",
+    "var1_clean": "orange",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def join(yellow, pink):\n    return yellow *",
+    "corrupt": "def join(black, purple):\n    return yellow *",
+    "correct_arg": "pink",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "pink"
+  },
+  {
+    "clean": "def compute(white, black):\n    return white +",
+    "corrupt": "def compute(purple, blue):\n    return white +",
+    "correct_arg": "black",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "black"
+  },
+  {
+    "clean": "def join(blue, orange):\n    return blue +",
+    "corrupt": "def join(pink, white):\n    return blue +",
+    "correct_arg": "orange",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def add(yellow, orange):\n    return yellow +",
+    "corrupt": "def add(blue, black):\n    return yellow +",
+    "correct_arg": "orange",
+    "incorrect_arg": "yellow",
+    "var1_clean": "yellow",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def combine(red, yellow):\n    return red *",
+    "corrupt": "def combine(purple, pink):\n    return red *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def calc(pink, yellow):\n    return pink *",
+    "corrupt": "def calc(white, black):\n    return pink *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def process(pink, yellow):\n    return pink +",
+    "corrupt": "def process(blue, white):\n    return pink +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def compute(pink, yellow):\n    return pink +",
+    "corrupt": "def compute(blue, white):\n    return pink +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def compute(black, yellow):\n    return black +",
+    "corrupt": "def compute(white, red):\n    return black +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def calc(white, purple):\n    return white *",
+    "corrupt": "def calc(black, yellow):\n    return white *",
+    "correct_arg": "purple",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def merge(green, white):\n    return green *",
+    "corrupt": "def merge(orange, yellow):\n    return green *",
+    "correct_arg": "white",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def mix(black, white):\n    return black *",
+    "corrupt": "def mix(purple, blue):\n    return black *",
+    "correct_arg": "white",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def join(blue, orange):\n    return blue *",
+    "corrupt": "def join(green, yellow):\n    return blue *",
+    "correct_arg": "orange",
+    "incorrect_arg": "blue",
+    "var1_clean": "blue",
+    "var2_clean": "orange"
+  },
+  {
+    "clean": "def merge(black, blue):\n    return black *",
+    "corrupt": "def merge(green, white):\n    return black *",
+    "correct_arg": "blue",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def calc(green, yellow):\n    return green *",
+    "corrupt": "def calc(red, purple):\n    return green *",
+    "correct_arg": "yellow",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def merge(black, white):\n    return black *",
+    "corrupt": "def merge(yellow, red):\n    return black *",
+    "correct_arg": "white",
+    "incorrect_arg": "black",
+    "var1_clean": "black",
+    "var2_clean": "white"
+  },
+  {
+    "clean": "def calc(pink, red):\n    return pink *",
+    "corrupt": "def calc(black, purple):\n    return pink *",
+    "correct_arg": "red",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def calc(red, purple):\n    return red +",
+    "corrupt": "def calc(yellow, orange):\n    return red +",
+    "correct_arg": "purple",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def compute(white, yellow):\n    return white +",
+    "corrupt": "def compute(green, orange):\n    return white +",
+    "correct_arg": "yellow",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "yellow"
+  },
+  {
+    "clean": "def calc(pink, purple):\n    return pink +",
+    "corrupt": "def calc(white, black):\n    return pink +",
+    "correct_arg": "purple",
+    "incorrect_arg": "pink",
+    "var1_clean": "pink",
+    "var2_clean": "purple"
+  },
+  {
+    "clean": "def process(white, green):\n    return white *",
+    "corrupt": "def process(purple, black):\n    return white *",
+    "correct_arg": "green",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "green"
+  },
+  {
+    "clean": "def add(red, blue):\n    return red *",
+    "corrupt": "def add(white, purple):\n    return red *",
+    "correct_arg": "blue",
+    "incorrect_arg": "red",
+    "var1_clean": "red",
+    "var2_clean": "blue"
+  },
+  {
+    "clean": "def join(green, red):\n    return green +",
+    "corrupt": "def join(orange, purple):\n    return green +",
+    "correct_arg": "red",
+    "incorrect_arg": "green",
+    "var1_clean": "green",
+    "var2_clean": "red"
+  },
+  {
+    "clean": "def mix(white, purple):\n    return white *",
+    "corrupt": "def mix(green, yellow):\n    return white *",
+    "correct_arg": "purple",
+    "incorrect_arg": "white",
+    "var1_clean": "white",
+    "var2_clean": "purple"
+  }
+]

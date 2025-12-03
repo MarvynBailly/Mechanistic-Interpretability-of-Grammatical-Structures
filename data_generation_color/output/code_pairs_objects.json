@@ -1,0 +1,802 @@
+[
+  {
+    "clean": "def merge(disk, ball):\n    return disk +",
+    "corrupt": "def merge(cube, star):\n    return disk +",
+    "correct_arg": "ball",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def calc(cube, disk):\n    return cube +",
+    "corrupt": "def calc(ball, cone):\n    return cube +",
+    "correct_arg": "disk",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def process(ball, cone):\n    return ball +",
+    "corrupt": "def process(box, disk):\n    return ball +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def merge(disk, cone):\n    return disk *",
+    "corrupt": "def merge(ring, star):\n    return disk *",
+    "correct_arg": "cone",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def calc(ring, box):\n    return ring *",
+    "corrupt": "def calc(ball, cube):\n    return ring *",
+    "correct_arg": "box",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def combine(box, cube):\n    return box +",
+    "corrupt": "def combine(star, ring):\n    return box +",
+    "correct_arg": "cube",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def mix(star, ball):\n    return star +",
+    "corrupt": "def mix(ring, cone):\n    return star +",
+    "correct_arg": "ball",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def calc(disk, star):\n    return disk +",
+    "corrupt": "def calc(cone, ball):\n    return disk +",
+    "correct_arg": "star",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def merge(ring, box):\n    return ring +",
+    "corrupt": "def merge(cone, star):\n    return ring +",
+    "correct_arg": "box",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def combine(ball, disk):\n    return ball +",
+    "corrupt": "def combine(box, star):\n    return ball +",
+    "correct_arg": "disk",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def compute(cone, ball):\n    return cone *",
+    "corrupt": "def compute(ring, star):\n    return cone *",
+    "correct_arg": "ball",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def mix(cube, box):\n    return cube +",
+    "corrupt": "def mix(ring, star):\n    return cube +",
+    "correct_arg": "box",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def add(ring, disk):\n    return ring *",
+    "corrupt": "def add(cube, cone):\n    return ring *",
+    "correct_arg": "disk",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def join(star, box):\n    return star +",
+    "corrupt": "def join(cone, cube):\n    return star +",
+    "correct_arg": "box",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def mix(cube, ball):\n    return cube +",
+    "corrupt": "def mix(ring, disk):\n    return cube +",
+    "correct_arg": "ball",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def compute(cube, ring):\n    return cube *",
+    "corrupt": "def compute(star, box):\n    return cube *",
+    "correct_arg": "ring",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def add(disk, star):\n    return disk +",
+    "corrupt": "def add(cube, box):\n    return disk +",
+    "correct_arg": "star",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def calc(disk, ring):\n    return disk *",
+    "corrupt": "def calc(cone, box):\n    return disk *",
+    "correct_arg": "ring",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def combine(box, cube):\n    return box +",
+    "corrupt": "def combine(star, disk):\n    return box +",
+    "correct_arg": "cube",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def calc(cone, ball):\n    return cone +",
+    "corrupt": "def calc(box, disk):\n    return cone +",
+    "correct_arg": "ball",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def mix(star, cone):\n    return star +",
+    "corrupt": "def mix(disk, ring):\n    return star +",
+    "correct_arg": "cone",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def join(disk, cone):\n    return disk +",
+    "corrupt": "def join(ball, box):\n    return disk +",
+    "correct_arg": "cone",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def process(box, star):\n    return box *",
+    "corrupt": "def process(cube, disk):\n    return box *",
+    "correct_arg": "star",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def mix(ring, cube):\n    return ring +",
+    "corrupt": "def mix(cone, ball):\n    return ring +",
+    "correct_arg": "cube",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def join(cube, box):\n    return cube *",
+    "corrupt": "def join(star, ball):\n    return cube *",
+    "correct_arg": "box",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def merge(ball, cone):\n    return ball +",
+    "corrupt": "def merge(star, disk):\n    return ball +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def compute(cube, ring):\n    return cube +",
+    "corrupt": "def compute(ball, cone):\n    return cube +",
+    "correct_arg": "ring",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def compute(cone, ring):\n    return cone +",
+    "corrupt": "def compute(cube, disk):\n    return cone +",
+    "correct_arg": "ring",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def merge(box, ring):\n    return box +",
+    "corrupt": "def merge(cone, disk):\n    return box +",
+    "correct_arg": "ring",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def compute(disk, box):\n    return disk *",
+    "corrupt": "def compute(ring, star):\n    return disk *",
+    "correct_arg": "box",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def join(ball, cube):\n    return ball +",
+    "corrupt": "def join(star, box):\n    return ball +",
+    "correct_arg": "cube",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def process(ring, cone):\n    return ring +",
+    "corrupt": "def process(cube, disk):\n    return ring +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def combine(disk, cone):\n    return disk +",
+    "corrupt": "def combine(ball, cube):\n    return disk +",
+    "correct_arg": "cone",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def mix(cone, box):\n    return cone *",
+    "corrupt": "def mix(ball, cube):\n    return cone *",
+    "correct_arg": "box",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def merge(cube, ring):\n    return cube *",
+    "corrupt": "def merge(box, disk):\n    return cube *",
+    "correct_arg": "ring",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def combine(cone, star):\n    return cone *",
+    "corrupt": "def combine(cube, ball):\n    return cone *",
+    "correct_arg": "star",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def process(box, star):\n    return box +",
+    "corrupt": "def process(disk, cone):\n    return box +",
+    "correct_arg": "star",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def merge(ball, star):\n    return ball +",
+    "corrupt": "def merge(ring, cube):\n    return ball +",
+    "correct_arg": "star",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def calc(cube, ring):\n    return cube +",
+    "corrupt": "def calc(disk, box):\n    return cube +",
+    "correct_arg": "ring",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def compute(box, star):\n    return box +",
+    "corrupt": "def compute(cube, ball):\n    return box +",
+    "correct_arg": "star",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def combine(ball, disk):\n    return ball +",
+    "corrupt": "def combine(cone, cube):\n    return ball +",
+    "correct_arg": "disk",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def merge(cube, star):\n    return cube *",
+    "corrupt": "def merge(disk, cone):\n    return cube *",
+    "correct_arg": "star",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def calc(ball, cube):\n    return ball *",
+    "corrupt": "def calc(disk, box):\n    return ball *",
+    "correct_arg": "cube",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def compute(cone, star):\n    return cone +",
+    "corrupt": "def compute(box, ring):\n    return cone +",
+    "correct_arg": "star",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def process(cube, box):\n    return cube *",
+    "corrupt": "def process(star, ball):\n    return cube *",
+    "correct_arg": "box",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def add(ball, cone):\n    return ball +",
+    "corrupt": "def add(disk, ring):\n    return ball +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def combine(ring, ball):\n    return ring +",
+    "corrupt": "def combine(box, cube):\n    return ring +",
+    "correct_arg": "ball",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def process(star, ball):\n    return star +",
+    "corrupt": "def process(cone, box):\n    return star +",
+    "correct_arg": "ball",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def mix(star, disk):\n    return star +",
+    "corrupt": "def mix(cone, box):\n    return star +",
+    "correct_arg": "disk",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def mix(disk, cone):\n    return disk *",
+    "corrupt": "def mix(box, cube):\n    return disk *",
+    "correct_arg": "cone",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def join(cube, disk):\n    return cube +",
+    "corrupt": "def join(star, ring):\n    return cube +",
+    "correct_arg": "disk",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def combine(ball, star):\n    return ball +",
+    "corrupt": "def combine(cone, cube):\n    return ball +",
+    "correct_arg": "star",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def combine(ring, box):\n    return ring +",
+    "corrupt": "def combine(cube, star):\n    return ring +",
+    "correct_arg": "box",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def mix(box, cone):\n    return box +",
+    "corrupt": "def mix(cube, ring):\n    return box +",
+    "correct_arg": "cone",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def add(disk, ring):\n    return disk *",
+    "corrupt": "def add(box, ball):\n    return disk *",
+    "correct_arg": "ring",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def mix(ball, cone):\n    return ball *",
+    "corrupt": "def mix(disk, box):\n    return ball *",
+    "correct_arg": "cone",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def mix(ring, cube):\n    return ring *",
+    "corrupt": "def mix(star, box):\n    return ring *",
+    "correct_arg": "cube",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def mix(box, ball):\n    return box +",
+    "corrupt": "def mix(cube, disk):\n    return box +",
+    "correct_arg": "ball",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def add(ball, box):\n    return ball *",
+    "corrupt": "def add(star, ring):\n    return ball *",
+    "correct_arg": "box",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def combine(ring, disk):\n    return ring +",
+    "corrupt": "def combine(star, ball):\n    return ring +",
+    "correct_arg": "disk",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def join(disk, cube):\n    return disk +",
+    "corrupt": "def join(cone, ball):\n    return disk +",
+    "correct_arg": "cube",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def join(star, cube):\n    return star +",
+    "corrupt": "def join(ball, ring):\n    return star +",
+    "correct_arg": "cube",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def join(box, cube):\n    return box *",
+    "corrupt": "def join(star, ball):\n    return box *",
+    "correct_arg": "cube",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def add(ring, disk):\n    return ring +",
+    "corrupt": "def add(cube, cone):\n    return ring +",
+    "correct_arg": "disk",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def calc(star, ball):\n    return star +",
+    "corrupt": "def calc(box, ring):\n    return star +",
+    "correct_arg": "ball",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def process(box, cube):\n    return box *",
+    "corrupt": "def process(ball, disk):\n    return box *",
+    "correct_arg": "cube",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def mix(cube, cone):\n    return cube +",
+    "corrupt": "def mix(ring, star):\n    return cube +",
+    "correct_arg": "cone",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def join(cube, ball):\n    return cube *",
+    "corrupt": "def join(star, disk):\n    return cube *",
+    "correct_arg": "ball",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def calc(cone, ball):\n    return cone *",
+    "corrupt": "def calc(star, disk):\n    return cone *",
+    "correct_arg": "ball",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def mix(ball, cone):\n    return ball +",
+    "corrupt": "def mix(star, box):\n    return ball +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def join(ball, ring):\n    return ball *",
+    "corrupt": "def join(disk, star):\n    return ball *",
+    "correct_arg": "ring",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def merge(ring, cone):\n    return ring *",
+    "corrupt": "def merge(ball, star):\n    return ring *",
+    "correct_arg": "cone",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def merge(ball, disk):\n    return ball *",
+    "corrupt": "def merge(ring, cube):\n    return ball *",
+    "correct_arg": "disk",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def combine(star, ball):\n    return star *",
+    "corrupt": "def combine(ring, cone):\n    return star *",
+    "correct_arg": "ball",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def calc(ring, box):\n    return ring *",
+    "corrupt": "def calc(disk, star):\n    return ring *",
+    "correct_arg": "box",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def calc(ring, cube):\n    return ring +",
+    "corrupt": "def calc(box, disk):\n    return ring +",
+    "correct_arg": "cube",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def process(ring, cone):\n    return ring *",
+    "corrupt": "def process(box, star):\n    return ring *",
+    "correct_arg": "cone",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def compute(box, cube):\n    return box *",
+    "corrupt": "def compute(disk, ring):\n    return box *",
+    "correct_arg": "cube",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def add(star, disk):\n    return star +",
+    "corrupt": "def add(cube, ring):\n    return star +",
+    "correct_arg": "disk",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def combine(box, ring):\n    return box +",
+    "corrupt": "def combine(cone, star):\n    return box +",
+    "correct_arg": "ring",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def add(disk, box):\n    return disk +",
+    "corrupt": "def add(cube, cone):\n    return disk +",
+    "correct_arg": "box",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def compute(ball, cube):\n    return ball *",
+    "corrupt": "def compute(disk, box):\n    return ball *",
+    "correct_arg": "cube",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def compute(disk, ring):\n    return disk *",
+    "corrupt": "def compute(cube, star):\n    return disk *",
+    "correct_arg": "ring",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def calc(cube, cone):\n    return cube +",
+    "corrupt": "def calc(ball, disk):\n    return cube +",
+    "correct_arg": "cone",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def process(cube, disk):\n    return cube +",
+    "corrupt": "def process(cone, ring):\n    return cube +",
+    "correct_arg": "disk",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def compute(cone, ball):\n    return cone *",
+    "corrupt": "def compute(ring, box):\n    return cone *",
+    "correct_arg": "ball",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ball"
+  },
+  {
+    "clean": "def compute(cone, star):\n    return cone +",
+    "corrupt": "def compute(disk, ring):\n    return cone +",
+    "correct_arg": "star",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def merge(disk, star):\n    return disk *",
+    "corrupt": "def merge(ring, box):\n    return disk *",
+    "correct_arg": "star",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def mix(cone, ring):\n    return cone *",
+    "corrupt": "def mix(star, cube):\n    return cone *",
+    "correct_arg": "ring",
+    "incorrect_arg": "cone",
+    "var1_clean": "cone",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def mix(ball, disk):\n    return ball *",
+    "corrupt": "def mix(star, box):\n    return ball *",
+    "correct_arg": "disk",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def add(box, ring):\n    return box +",
+    "corrupt": "def add(ball, cube):\n    return box +",
+    "correct_arg": "ring",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "ring"
+  },
+  {
+    "clean": "def combine(star, disk):\n    return star *",
+    "corrupt": "def combine(cube, cone):\n    return star *",
+    "correct_arg": "disk",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "disk"
+  },
+  {
+    "clean": "def calc(star, box):\n    return star +",
+    "corrupt": "def calc(cone, disk):\n    return star +",
+    "correct_arg": "box",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def calc(cube, star):\n    return cube *",
+    "corrupt": "def calc(disk, ball):\n    return cube *",
+    "correct_arg": "star",
+    "incorrect_arg": "cube",
+    "var1_clean": "cube",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def calc(ball, box):\n    return ball +",
+    "corrupt": "def calc(ring, disk):\n    return ball +",
+    "correct_arg": "box",
+    "incorrect_arg": "ball",
+    "var1_clean": "ball",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def compute(star, cube):\n    return star +",
+    "corrupt": "def compute(ring, disk):\n    return star +",
+    "correct_arg": "cube",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "cube"
+  },
+  {
+    "clean": "def compute(star, box):\n    return star +",
+    "corrupt": "def compute(disk, cube):\n    return star +",
+    "correct_arg": "box",
+    "incorrect_arg": "star",
+    "var1_clean": "star",
+    "var2_clean": "box"
+  },
+  {
+    "clean": "def process(ring, cone):\n    return ring +",
+    "corrupt": "def process(ball, star):\n    return ring +",
+    "correct_arg": "cone",
+    "incorrect_arg": "ring",
+    "var1_clean": "ring",
+    "var2_clean": "cone"
+  },
+  {
+    "clean": "def add(disk, star):\n    return disk +",
+    "corrupt": "def add(cube, ring):\n    return disk +",
+    "correct_arg": "star",
+    "incorrect_arg": "disk",
+    "var1_clean": "disk",
+    "var2_clean": "star"
+  },
+  {
+    "clean": "def compute(box, star):\n    return box *",
+    "corrupt": "def compute(ring, cube):\n    return box *",
+    "correct_arg": "star",
+    "incorrect_arg": "box",
+    "var1_clean": "box",
+    "var2_clean": "star"
+  }
+]

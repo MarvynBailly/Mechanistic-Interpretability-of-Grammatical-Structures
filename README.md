@@ -179,6 +179,54 @@ Here we see a strong correlation between high negative copy scores and negative 
 There are three ways to influence an attention head: through its query, key, or value vectors.  
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Setup
 
 ### Environment Setup (Windows)
@@ -297,12 +345,44 @@ The corrupt version uses completely different names to test what happens when th
 ```
 
 
+## Color-Object Association Task (Novel Extension)
+
+We are implementing a **new task** to discover circuits in GPT-2 small for compositional reasoning. See [`color_object_association/`](color_object_association/) for details.
+
+**Task**: Given color-object pairs and a preference, predict the preferred object.
+```
+"The red ball and blue cube are here. I prefer the red, so I'll take the"
+→ Model should predict: "ball"
+```
+
+**Expected Circuit**:
+1. **Association Heads** (L0-L3): Bind color↔object pairs
+2. **Preference Detection** (L4-L7): Identify preferred color
+3. **Color Retriever Heads** (L8-L10): Look up associated object
+4. **Object Mover Heads** (L10-L11): Output object to logits
+
+This extends our IOI work to test if similar mechanistic patterns emerge for different compositional reasoning tasks.
+
 ## To Do
+
+### IOI Task (Completed)
 - [x] Native speaker needs to read through translated [templates](data_generation/input/templates.json)
 - [x] Native speaker needs to read through translated [words](data_generation/input/words.json)
 - [x] Understand what is going on
 - [x] Implement unmasked IOI on English dataset
+- [x] Identify Name Mover Heads via path patching
+- [x] Verify Name Mover mechanism with copy scores
+
+### IOI Task (Future)
 - [ ] Implement unmasked IOI on Chinese dataset
 - [ ] Implement masked IOI on English dataset
 - [ ] Implement masked IOI on Chinese dataset
 - [ ] Implement masked versus unmasked correlation code
+
+### Color-Object Association Task (New)
+- [x] Design task and expected circuit
+- [ ] Generate color-object association dataset
+- [ ] Implement path patching for direct effects
+- [ ] Identify Object Mover Heads
+- [ ] Verify copy scores for Object Movers
+- [ ] Compare circuit structure with IOI task
