@@ -100,6 +100,8 @@ def save_path_patching_heatmap(
     output_dir: str,
     filename: str = "direct_effect_heatmap.png",
     title: str = "Direct Effect: Head → Logits",
+    vmin: float = None,
+    vmax: float = None,
 ):
     """
     Save path patching effects as a heatmap (analogous to Figure 3b).
@@ -119,6 +121,8 @@ def save_path_patching_heatmap(
         ylabel="Layer",
         colorbar_label="Logit Difference Recovery",
         cmap="RdBu_r",  # Red = positive (helps task), Blue = negative (hurts task)
+        vmin=vmin,
+        vmax=vmax,
     )
 
 

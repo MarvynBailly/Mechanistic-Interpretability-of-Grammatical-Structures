@@ -1,8 +1,0 @@
-{
-  "total_clean_pairs": 900,
-  "total_fuzzy_pairs": 2700,
-  "total_patching_pairs": 900,
-  "num_templates": 15,
-  "num_words": 60,
-  "expected_pairs": 900
-}

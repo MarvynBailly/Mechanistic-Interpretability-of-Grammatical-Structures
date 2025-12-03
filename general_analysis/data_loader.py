@@ -27,7 +27,7 @@ def get_dataset_path(size: str = "small") -> Path:
         Path to the dataset JSON file
     """
     current_dir = Path(__file__).parent
-    base_dir = current_dir.parent / "data_generation_color" / "output"
+    base_dir = current_dir.parent / "data_generation" / "output"
     return base_dir / f"color_pairs_{size}.json"
 
 
@@ -124,7 +124,7 @@ def load_dataset_for_patching(
     if not dataset_path.exists():
         raise FileNotFoundError(
             f"Dataset not found: {dataset_path}\n"
-            f"Please run: cd data_generation_color && python generate_color_pairs.py"
+            f"Please run: cd data_generation && python generate_color_pairs.py"
         )
     
     # Load pairs

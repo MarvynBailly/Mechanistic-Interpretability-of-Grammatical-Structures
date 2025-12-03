@@ -1,0 +1,135 @@
+{
+  "task_name": "Code (objects)",
+  "n_examples": 100,
+  "example": {
+    "clean_sentence": "<|endoftext|>def merge(disk, ball):\n    return disk +",
+    "corrupt_sentence": "<|endoftext|>def merge(cube, star):\n    return disk +",
+    "correct_token": " ball",
+    "incorrect_token": " disk",
+    "raw_pair": {
+      "clean": "def merge(disk, ball):\n    return disk +",
+      "corrupt": "def merge(cube, star):\n    return disk +",
+      "correct_arg": "ball",
+      "incorrect_arg": "disk",
+      "var1_clean": "disk",
+      "var2_clean": "ball"
+    }
+  },
+  "statistics": {
+    "clean_logit_diff": 2.413195848464966,
+    "corrupt_logit_diff": -4.568023204803467,
+    "clean_accuracy": 0.9399999976158142,
+    "clean_top5_accuracy": 1.0,
+    "corrupt_accuracy": 0.0,
+    "corruption_effect": 6.981219053268433,
+    "verdict": "excellent"
+  },
+  "significant_heads": {
+    "threshold": 0.5971229672431946,
+    "n_significant": 8,
+    "top_10_positive": [
+      {
+        "layer": 9,
+        "head": 6,
+        "effect": 2.8099701404571533
+      },
+      {
+        "layer": 9,
+        "head": 9,
+        "effect": 2.1785950660705566
+      },
+      {
+        "layer": 5,
+        "head": 5,
+        "effect": 1.3186945915222168
+      },
+      {
+        "layer": 10,
+        "head": 0,
+        "effect": 1.2541015148162842
+      },
+      {
+        "layer": 4,
+        "head": 11,
+        "effect": 0.735020637512207
+      },
+      {
+        "layer": 10,
+        "head": 10,
+        "effect": 0.6067805290222168
+      },
+      {
+        "layer": 7,
+        "head": 1,
+        "effect": 0.5424008369445801
+      },
+      {
+        "layer": 6,
+        "head": 9,
+        "effect": 0.5077347755432129
+      },
+      {
+        "layer": 3,
+        "head": 0,
+        "effect": 0.4874897003173828
+      },
+      {
+        "layer": 0,
+        "head": 1,
+        "effect": 0.4824047088623047
+      }
+    ],
+    "top_10_negative": [
+      {
+        "layer": 10,
+        "head": 7,
+        "effect": -1.604236125946045
+      },
+      {
+        "layer": 11,
+        "head": 10,
+        "effect": -0.7107057571411133
+      },
+      {
+        "layer": 5,
+        "head": 9,
+        "effect": -0.12529468536376953
+      },
+      {
+        "layer": 4,
+        "head": 7,
+        "effect": -0.10405206680297852
+      },
+      {
+        "layer": 8,
+        "head": 3,
+        "effect": -0.08837080001831055
+      },
+      {
+        "layer": 9,
+        "head": 7,
+        "effect": -0.06379413604736328
+      },
+      {
+        "layer": 7,
+        "head": 6,
+        "effect": -0.05181264877319336
+      },
+      {
+        "layer": 8,
+        "head": 11,
+        "effect": -0.0465092658996582
+      },
+      {
+        "layer": 6,
+        "head": 6,
+        "effect": -0.04489469528198242
+      },
+      {
+        "layer": 6,
+        "head": 5,
+        "effect": -0.03861808776855469
+      }
+    ]
+  }
+}

@@ -186,16 +186,45 @@ There are three ways to influence an attention head: through its query, key, or 
 
 
 
+## New Data Generation: Simple Code
+We present a new sentence structure of a similar format and thus we expect gpt2 to use a similar circuit to solve this task. The clean setences are of the following form:
+```python
+def [func_name](arg1, arg2):
+    return arg1 [operation]
+```
+where the expected result is arg 1. We can measure logtic difference between arg1 and arg2 at the return token. The corrupt sentences are of the form:
+```python
+def [func_name](arg3, arg4):
+    return arg5 [operation]
+```
+where arg3, arg4, and arg5 are random variable names not equal to arg1 or arg2. Running the same path patching analysis should reveal a similar circuit of Name Mover heads, Negative Name Mover heads, and S-Inhibition heads.
 
+### Results
+Running over 200 exapmles, we note that gpt2 is good at this task:
+```
+✓ Clean Performance:
+   Logit difference:   2.413
+   Top-1 Accuracy:     94.0%
+   Top-5 Accuracy:    100.0%
 
+✗ Corrupt Performance:
+   Logit difference:  -4.568
+   Accuracy:            0.0%
 
+🔄 Corruption Effect:
+   Logit diff change:  6.981
+```
+and we notice there are 8 signficant heads:
+```
+Significance Threshold (95th percentile):
+  |Effect| ≥ 0.5971
+  Significant heads: 8 / 144
+```
+Plotting the results gives the following figure:
 
+![Code Completion Path Patching Results](results/general_analysis_code_objects/direct_effect_heatmap.png)
 
-
-
-
-
-
+Notable the head at L5H5 plays a positive role which was not present in the IOI task. Maybe let's look into what this head?
 
 
 

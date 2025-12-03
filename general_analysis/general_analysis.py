@@ -334,7 +334,9 @@ class PathPatchingAnalyzer:
             effects=effects,
             output_dir=output_dir,
             filename="direct_effect_heatmap.png",
-            title=f"Direct Effect: Head → Logits ({self.task_name})"
+            title=f"Direct Effect: Head → Logits ({self.task_name})",
+            # vmin=-0.6,
+            # vmax=0.6,
         )
         
         # Save top heads plot
@@ -537,7 +539,7 @@ if __name__ == "__main__":
     results = run_path_patching_analysis(
         dataset_type="code",
         dataset_params={"var_type": "objects"},
-        n_examples=100,
+        n_examples=200,
         output_dir="results/general_analysis_code_objects"
     )
     

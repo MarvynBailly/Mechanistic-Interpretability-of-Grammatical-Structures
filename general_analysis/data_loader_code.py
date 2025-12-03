@@ -14,7 +14,7 @@ from transformer_lens import HookedTransformer
 def get_code_dataset_path(var_type: str = "colors") -> Path:
     """Get path to code completion dataset file."""
     current_dir = Path(__file__).parent
-    base_dir = current_dir.parent / "data_generation_color" / "output"
+    base_dir = current_dir.parent / "data_generation" / "output"
     return base_dir / f"code_pairs_{var_type}.json"
 
 
@@ -80,7 +80,7 @@ def load_code_dataset_for_patching(
     if not dataset_path.exists():
         raise FileNotFoundError(
             f"Dataset not found: {dataset_path}\n"
-            f"Please run: python data_generation_color/generate_code_pairs.py"
+            f"Please run: python data_generation/generate_code_pairs.py"
         )
     
     # Load pairs

@@ -8,7 +8,7 @@ from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.append(str(Path(__file__).parent.parent / "path_patching"))
-sys.path.append(str(Path(__file__).parent.parent / "data_generation_simple"))
+sys.path.append(str(Path(__file__).parent))
 
 from IOI_pathpatching_gpu import IOIConfig
 from load_pairs import load_ioi_pairs, make_ioi_pair_from_data, get_dataset_path

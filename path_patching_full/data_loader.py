@@ -29,9 +29,9 @@ def get_dataset_path(size: str = "small") -> Path:
     Note:
         Assumes data_generation_simple/output/ is at the same level as path_patching_full
     """
-    # Navigate up to parent directory, then into data_generation_simple
+    # Navigate up to parent directory, then into data_generation
     current_dir = Path(__file__).parent
-    base_dir = current_dir.parent / "data_generation_simple" / "output"
+    base_dir = current_dir.parent / "data_generation" / "output"
     return base_dir / f"ioi_pairs_{size}.json"
 
 
