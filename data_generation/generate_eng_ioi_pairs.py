@@ -89,10 +89,10 @@ def generate_ioi_pair(template: str, obj: str) -> IOIPair:
     
     # Sample different random names for corrupt (use 2 names: R1 and R2)
     # Important: S1 and S2 must be the same person (like in clean sentence)
-    r1_name, r2_name = sample_names(2, exclude=[io_name, s_name])
+    r1_name, r2_name, r3_name = sample_names(3, exclude=[io_name, s_name])
     
     # Corrupt sentence with random names (R2 appears twice, like S in clean)
-    corrupt_text = template.format(IO=r1_name, S1=r2_name, S2=r2_name, object=obj)
+    corrupt_text = template.format(IO=r1_name, S1=r2_name, S2=r3_name, object=obj)
     
     return IOIPair(
         clean_text=clean_text,
