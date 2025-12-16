@@ -15,7 +15,7 @@ def get_ch_ioi_dataset_path(size: str = "small") -> Path:
     """Get path to Chinese IOI dataset file."""
     current_dir = Path(__file__).parent
     base_dir = current_dir.parent / "data_generation" / "output"
-    return base_dir / f"ioi_pairs_{size}.json"
+    return base_dir / f"chinese_ioi_pairs_{size}.json"
 
 
 def load_ch_ioi_pairs(dataset_path: Path) -> List[Dict]:
