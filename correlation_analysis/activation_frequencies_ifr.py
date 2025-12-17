@@ -66,7 +66,12 @@ def get_io_s_ids(model: HookedTransformer, ex: Dict[str, Any]) -> Tuple[int, int
         io = get_token_id(model, ex["io_token"])
         s = get_token_id(model, " " + ex["s_name"])
         return io, s
-    raise ValueError("Missing IO/S tokens")
+    elif "correct_arg" in ex and "incorrect_arg" in ex:
+        # Code task format
+        io = get_token_id(model, ex["correct_arg"])
+        s = get_token_id(model, ex["incorrect_arg"])
+        return io, s
+    raise ValueError("Missing IO/S tokens or correct/incorrect args")
 
 
 # -------------------------
