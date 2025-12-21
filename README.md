@@ -1,6 +1,6 @@
 # Mechanistic Interpretability of Grammatical Structures
 
-This project implements path patching experiments for analyzing the Indirect Object Identification (IOI) task using GPT-2 small, based on the mechanistic interpretability framework.
+This project implements path patching experiments for analyzing the Indirect Object Identification (IOI) task using GPT-2 small and the CPM small, based on the mechanistic interpretability framework.
 
 ## IOI Task Overview
 ### IOI Sentences
