@@ -1,0 +1,220 @@
+{
+  "target": "s1",
+  "n_examples": 300,
+  "behaviour": {
+    "exact": {
+      "clean_logit_diff": 3.711064577102661,
+      "clean_logit_diff_std": 1.340166449546814,
+      "corrupt_logit_diff": -0.08163546770811081,
+      "corruption_effect": 3.7927002906799316,
+      "p_io_over_s": 0.9933333396911621,
+      "top1_accuracy": 0.9333333373069763,
+      "mean_variant_n_tokens": 1.0
+    },
+    "swap": {
+      "clean_logit_diff": 2.1845006942749023,
+      "clean_logit_diff_std": 1.1095454692840576,
+      "corrupt_logit_diff": -0.09424618631601334,
+      "corruption_effect": 2.2787468433380127,
+      "p_io_over_s": 0.9866666793823242,
+      "top1_accuracy": 0.3933333456516266,
+      "mean_variant_n_tokens": 2.68
+    },
+    "drop": {
+      "clean_logit_diff": 2.281050443649292,
+      "clean_logit_diff_std": 1.184423804283142,
+      "corrupt_logit_diff": -0.11934362351894379,
+      "corruption_effect": 2.4003942012786865,
+      "p_io_over_s": 0.9766666889190674,
+      "top1_accuracy": 0.4233333468437195,
+      "mean_variant_n_tokens": 1.9833333333333334
+    },
+    "double": {
+      "clean_logit_diff": 2.351752281188965,
+      "clean_logit_diff_std": 1.4039674997329712,
+      "corrupt_logit_diff": -0.07223743200302124,
+      "corruption_effect": 2.423989772796631,
+      "p_io_over_s": 0.9533333778381348,
+      "top1_accuracy": 0.5166666507720947,
+      "mean_variant_n_tokens": 2.4366666666666665
+    },
+    "sub": {
+      "clean_logit_diff": 2.1614930629730225,
+      "clean_logit_diff_std": 1.1806427240371704,
+      "corrupt_logit_diff": 0.02146107703447342,
+      "corruption_effect": 2.1400318145751953,
+      "p_io_over_s": 0.9633333683013916,
+      "top1_accuracy": 0.3933333456516266,
+      "mean_variant_n_tokens": 2.533333333333333
+    },
+    "unrelated": {
+      "clean_logit_diff": 2.424226760864258,
+      "clean_logit_diff_std": 1.1441223621368408,
+      "corrupt_logit_diff": -0.03271771967411041,
+      "corruption_effect": 2.456944704055786,
+      "p_io_over_s": 0.996666669845581,
+      "top1_accuracy": 0.43666666746139526,
+      "mean_variant_n_tokens": 1.0
+    }
+  },
+  "head_classes": {
+    "exact": {
+      "Duplicate token": {
+        "attention": 0.5177015562852224,
+        "effect": -0.03427092730998993
+      },
+      "Induction": {
+        "attention": 0.40347818471491337,
+        "effect": -0.0031039509922266006
+      },
+      "S-inhibition": {
+        "attention": 0.4587669409811497,
+        "effect": 0.16206266917288303
+      },
+      "Name mover": {
+        "attention": 0.5532507797082266,
+        "effect": 1.6488259236017864
+      },
+      "Negative name mover": {
+        "attention": 0.6555873155593872,
+        "effect": -1.3940464556217194
+      }
+    },
+    "swap": {
+      "Duplicate token": {
+        "attention": 0.05753551982343197,
+        "effect": 0.033605928222338356
+      },
+      "Induction": {
+        "attention": 0.08455924363806844,
+        "effect": 0.0032726768404245377
+      },
+      "S-inhibition": {
+        "attention": 0.3212985433638096,
+        "effect": 0.11824100464582443
+      },
+      "Name mover": {
+        "attention": 0.27884791294733685,
+        "effect": 0.5521496136983236
+      },
+      "Negative name mover": {
+        "attention": 0.27536457031965256,
+        "effect": -0.0462619848549366
+      }
+    },
+    "drop": {
+      "Duplicate token": {
+        "attention": 0.05458574121197065,
+        "effect": 0.028713305791219074
+      },
+      "Induction": {
+        "attention": 0.11103127850219607,
+        "effect": 0.002492062747478485
+      },
+      "S-inhibition": {
+        "attention": 0.336224352940917,
+        "effect": 0.119700962677598
+      },
+      "Name mover": {
+        "attention": 0.2886838416258494,
+        "effect": 0.598769873380661
+      },
+      "Negative name mover": {
+        "attention": 0.29118241369724274,
+        "effect": -0.08379759639501572
+      }
+    },
+    "double": {
+      "Duplicate token": {
+        "attention": 0.14734395345052084,
+        "effect": 0.01583973566691081
+      },
+      "Induction": {
+        "attention": 0.11921615479514003,
+        "effect": 0.001580437645316124
+      },
+      "S-inhibition": {
+        "attention": 0.33829741925001144,
+        "effect": 0.12680256366729736
+      },
+      "Name mover": {
+        "attention": 0.3173724114894867,
+        "effect": 0.709087610244751
+      },
+      "Negative name mover": {
+        "attention": 0.3288782685995102,
+        "effect": -0.2157176434993744
+      }
+    },
+    "sub": {
+      "Duplicate token": {
+        "attention": 0.05725978873670101,
+        "effect": 0.021877255911628406
+      },
+      "Induction": {
+        "attention": 0.08249659650027752,
+        "effect": 0.0005217795260250568
+      },
+      "S-inhibition": {
+        "attention": 0.32260111160576344,
+        "effect": 0.11689275596290827
+      },
+      "Name mover": {
+        "attention": 0.27887219687302905,
+        "effect": 0.5326407154401144
+      },
+      "Negative name mover": {
+        "attention": 0.2724357694387436,
+        "effect": -0.024087519384920597
+      }
+    },
+    "unrelated": {
+      "Duplicate token": {
+        "attention": 0.022642224018151563,
+        "effect": 0.04157756517330805
+      },
+      "Induction": {
+        "attention": 0.06810728390701115,
+        "effect": 0.0019577695056796074
+      },
+      "S-inhibition": {
+        "attention": 0.32309455797076225,
+        "effect": 0.10571173345670104
+      },
+      "Name mover": {
+        "attention": 0.250635693470637,
+        "effect": 0.5633065700531006
+      },
+      "Negative name mover": {
+        "attention": 0.28212878108024597,
+        "effect": -0.2759939059615135
+      }
+    }
+  },
+  "similarity": {
+    "exact": {
+      "pearson_r_vs_exact": 0.9999999999999999,
+      "top10_overlap_vs_exact": 1.0
+    },
+    "swap": {
+      "pearson_r_vs_exact": 0.8164182181329285,
+      "top10_overlap_vs_exact": 0.5
+    },
+    "drop": {
+      "pearson_r_vs_exact": 0.8341350817725711,
+      "top10_overlap_vs_exact": 0.6
+    },
+    "double": {
+      "pearson_r_vs_exact": 0.9129830793544733,
+      "top10_overlap_vs_exact": 0.7
+    },
+    "sub": {
+      "pearson_r_vs_exact": 0.8039400489928891,
+      "top10_overlap_vs_exact": 0.5
+    },
+    "unrelated": {
+      "pearson_r_vs_exact": 0.883659681472437,
+      "top10_overlap_vs_exact": 0.8
+    }
+  }
+}
