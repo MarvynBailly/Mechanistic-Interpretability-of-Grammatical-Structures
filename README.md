@@ -289,6 +289,37 @@ Mean attention of the Wang et al. heads in each class (typo at S2):
 
 In the dual-route terms of Feucht et al. (2025), GPT-2 small shows the token-level route breaking and no evidence of a concept-level route that recovers typo'd names. Natural next steps are to repeat this on a larger model (e.g. Pythia or Llama, where concept-level induction heads have been reported) and to patch the clean-name residual stream into the typo'd run layer by layer, to find where, if anywhere, the typo is repaired.
 
+### Where (if anywhere) is the typo repaired?
+[`general_analysis/typo_repair_analysis.py`](general_analysis/typo_repair_analysis.py) takes the exact run of each base example as the source and the typo'd run as the target, and asks, layer by layer:
+1. **Residual stream patching.** Patch the exact run's residual stream into the typo'd run at one position (the typo'd name's last token, or END). Recovery = (patched − typo) / (exact − typo).
+2. **Name retrieval.** Is the typo'd name's last-token representation closest to the right name's exact-run prototype (mean-centred, cosine, 30 names, chance ≈ 3%)?
+3. **Component patching.** Patch one layer's attention or MLP output at the typo'd name.
+
+```powershell
+$env:PYTHONIOENCODING="utf-8"; py .\general_analysis\typo_repair_analysis.py --target s2 --n 300
+$env:PYTHONIOENCODING="utf-8"; py .\general_analysis\typo_repair_analysis.py --target s1 --n 300
+```
+
+![Residual patching, typo at S2](results/typo_repair_s2/300_examples/resid_patching_recovery.png)
+
+![Name retrieval, typo at S2](results/typo_repair_s2/300_examples/name_retrieval_by_layer.png)
+
+| Typo at S2 | swap | drop | double | sub | unrelated |
+|------------|------|------|------|------|------|
+| Name retrieval at embeddings (L0) | 18% | 30% | 32% | 17% | 0% |
+| Best name retrieval (layer) | 35% (L9) | 45% (L7) | 55% (L10) | 34% (L9) | 1% |
+| Recovery, patch name resid at L0 | 0.43 | 0.53 | 0.39 | 0.45 | 1.00 |
+| Recovery, patch name resid at L4 | 0.77 | 0.85 | 0.79 | 0.78 | 0.98 |
+| Recovery, patch END resid at L9 | 0.91 | 0.89 | 0.90 | 0.90 | 1.06 |
+
+**Takeaways**
+- **There is some repair, but it is partial and late.** Some identity is present from surface overlap: at the embeddings the typo'd name's last token is closest to the right name 17-32% of the time. This rises to 34-55%, peaking at layers 7-10, far above 3% chance but far from reliable. The unrelated control stays at 0%, so the metric is not trivially satisfied.
+- **The circuit reads name identity before the repair happens.** At S2, patching the exact residual recovers *more* after layers 3-4 (0.77-0.85) than at the embeddings (0.39-0.53). Component patching shows why: besides MLP0 (the token's identity, 0.37-0.53 recovery), the missing pieces are the layer 3 and layer 5 attention outputs at S2 (0.13-0.19 and 0.33-0.38). These are where duplicate token head L3H0 and induction head L5H5 write "this name was seen before". The typo'd run is missing the *result of the exact match*, which the partial late repair never recreates.
+- **The signal leaves the name position around layers 8-9.** Name-position patching stops helping at L9, and END patching jumps from ~0.04 at L7 to ~0.9 at L9, the S-inhibition hand-off (L7/L8 heads). This curve is the same for typo and unrelated runs.
+- **At S1 the window is even earlier.** With the typo at S1, patching the exact S1 residual recovers 0.75-1.02 at the embeddings, only ~0.1-0.3 at layer 1, and from layer 3 on it *hurts* (−0.3 to −0.4 at layer 3, −0.8 to −0.9 at layers 4-6, the same for the unrelated control). Once the early duplicate detection has run without a match, restoring "Susan" at S1 late just gives the name movers a second copy of Susan to attend to.
+
+In short, GPT-2 small partly reconstructs misspelled names by mid-to-late layers. But the IOI circuit's matching happens in layers 0-5 on raw token identity, so the repair arrives too late to matter.
+
 Caveat: S2→S1 attention is measured from the *last* token of the typo'd S2 span. The first sub-token (e.g. " Sus" in " Susna") could carry a partial match that this metric does not capture.
 
 
